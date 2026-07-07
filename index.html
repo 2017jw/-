@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天然橡胶期货现货专题</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===========================================
+       THEME — 天然橡胶专题 · 统一视觉系统
+       =========================================== */
+    :root {
+      --stage-bg: #0a1410;
+      --slide-bg: #f6f2ea;
+      --ink: #152420;
+      --ink-soft: #2e4039;
+      --muted: #5f6f68;
+      --line: rgba(21, 36, 32, 0.14);
+      --panel: rgba(255, 252, 246, 0.92);
+      --deep: #0f2a22;
+      --deep-2: #16352b;
+      --copper: #b87832;
+      --copper-light: #d4a05a;
+      --sage: #3d7a62;
+      --sage-light: #5a9a7e;
+      --cream: #f6f2ea;
+      --font-display: "Noto Serif SC", "Songti SC", serif;
+      --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --pad-x: 112px;
+      --pad-y: 88px;
+      --hero-copy-width: 50%;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.55s;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* --- viewport-base.css --- */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--stage-bg);
+    }
+
+    .deck-viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: var(--stage-bg);
+    }
+
+    .deck-stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      transform-origin: 0 0;
+      background: var(--slide-bg);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .deck-viewport.nav-shift .deck-stage {
+      transition: transform 0.32s var(--ease);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: var(--slide-bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+    }
+
+    .slide.active,
+    .slide.visible {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    img, video, canvas, svg { max-width: 100%; max-height: 100%; }
+
+  /* ===========================================
+     SLIDE LAYOUT
+     =========================================== */
+    .slide-inner {
+      position: absolute;
+      inset: var(--pad-y) var(--pad-x);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-shrink: 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--sage);
+      text-transform: none;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 36px;
+      height: 3px;
+      background: var(--copper);
+      border-radius: 2px;
+    }
+
+    .subsection-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      margin: 22px 0 12px;
+      font-family: var(--font-body);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.03em;
+      color: var(--sage);
+    }
+
+    .subsection-label::before {
+      content: "";
+      flex-shrink: 0;
+      width: 28px;
+      height: 3px;
+      background: var(--copper);
+      border-radius: 2px;
+    }
+
+    .subsection-label.compact {
+      margin: 16px 0 10px;
+      font-size: 20px;
+    }
+
+    .page-no {
+      font-size: 20px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: rgba(21, 36, 32, 0.38);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      font-size: 84px;
+      line-height: 1.12;
+      max-width: 1100px;
+    }
+
+    h2 {
+      font-size: 50px;
+      line-height: 1.22;
+      max-width: 1500px;
+    }
+
+    h3 {
+      font-size: 28px;
+      line-height: 1.3;
+      color: var(--deep);
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 26px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 32px;
+      line-height: 1.48;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .kicker {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.35em;
+      color: var(--muted);
+    }
+
+    li {
+      font-size: 24px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    li:last-child { margin-bottom: 0; }
+
+    .source {
+      position: absolute;
+      left: var(--pad-x);
+      right: var(--pad-x);
+      bottom: 36px;
+      font-size: 17px;
+      line-height: 1.45;
+      color: rgba(21, 36, 32, 0.42);
+    }
+
+    a {
+      color: var(--sage);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(61, 122, 98, 0.35);
+    }
+
+    a:hover { border-bottom-color: var(--sage); }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+    }
+
+    .slide.visible .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal:nth-child(2) { transition-delay: 0.06s; }
+    .reveal:nth-child(3) { transition-delay: 0.12s; }
+    .reveal:nth-child(4) { transition-delay: 0.18s; }
+    .reveal:nth-child(5) { transition-delay: 0.24s; }
+
+    /* ===========================================
+       COMPONENTS
+       =========================================== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 28px 30px;
+      border-radius: 4px;
+    }
+
+    .panel p,
+    .panel li { font-size: 23px; }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--copper);
+      padding: 26px 28px;
+      border-radius: 4px;
+    }
+
+    .metric .value {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--deep);
+      margin-bottom: 10px;
+    }
+
+    .metric .label {
+      font-size: 22px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .matrix {
+      display: grid;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .matrix.cols-4 { grid-template-columns: 200px repeat(3, 1fr); }
+    .matrix.cols-5 { grid-template-columns: 220px repeat(4, 1fr); }
+    .matrix.cols-4-wide { grid-template-columns: 260px repeat(3, 1fr); }
+
+    .matrix > div {
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--muted);
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .matrix > div:nth-child(4n) { border-right: none; }
+    .matrix.cols-5 > div:nth-child(4n) { border-right: 1px solid var(--line); }
+    .matrix.cols-5 > div:nth-child(5n) { border-right: none; }
+
+    .matrix .head {
+      background: var(--deep);
+      color: var(--cream);
+      font-weight: 700;
+      font-size: 21px;
+    }
+
+    .matrix .rowhead {
+      background: rgba(61, 122, 98, 0.1);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 8px;
+      border-top: 3px solid var(--sage);
+      padding-top: 4px;
+    }
+
+    .event {
+      position: relative;
+      padding: 28px 20px 0 0;
+    }
+
+    .event::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -13px;
+      width: 20px;
+      height: 20px;
+      background: var(--copper);
+      border: 4px solid var(--cream);
+      border-radius: 50%;
+    }
+
+    .event .year {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--deep);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .event p { font-size: 22px; line-height: 1.42; }
+
+    .bars {
+      display: grid;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 130px;
+      gap: 18px;
+      align-items: center;
+      font-size: 22px;
+      color: var(--muted);
+    }
+
+    .bar-row b { color: var(--ink); font-weight: 600; }
+
+    .bar {
+      height: 28px;
+      background: rgba(21, 36, 32, 0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--sage), var(--copper));
+      border-radius: 2px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .flow .step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 22px 20px;
+      border-radius: 4px;
+      position: relative;
+      min-height: 140px;
+    }
+
+    .flow .step::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--copper);
+      font-size: 20px;
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .flow .step:last-child::after { display: none; }
+
+    .flow .step b {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--copper);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .flow .step p {
+      font-size: 22px;
+      line-height: 1.38;
+      color: var(--ink-soft);
+    }
+
+    .formula {
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--deep);
+      background: rgba(61, 122, 98, 0.1);
+      border-left: 6px solid var(--copper);
+      padding: 28px 32px;
+      border-radius: 0 4px 4px 0;
+      margin: 8px 0;
+    }
+
+    .quote {
+      font-family: var(--font-display);
+      font-size: 36px;
+      line-height: 1.38;
+      color: var(--deep);
+      border-left: 6px solid var(--copper);
+      padding-left: 28px;
+      margin-top: 32px;
+      max-width: 1400px;
+    }
+
+    .accent { color: var(--copper); }
+    .green { color: var(--sage); }
+    .blue { color: #4a7a9a; }
+
+    .mt-sm { margin-top: 24px; }
+    .mt-md { margin-top: 36px; }
+    .mt-lg { margin-top: 48px; }
+
+    .metric.dense .value {
+      font-size: 42px;
+    }
+
+    .metric.dense .label {
+      font-size: 20px;
+      line-height: 1.32;
+    }
+
+    .panel.dense p,
+    .panel.dense li {
+      font-size: 21px;
+      line-height: 1.42;
+    }
+
+    .panel.dense h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--sage);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    .slide[data-title="海外市场"] h2 {
+      font-size: 50px;
+      line-height: 1.14;
+    }
+
+    .slide[data-title="海外市场"] .matrix.compact > div {
+      padding: 8px 14px;
+      font-size: 18px;
+      line-height: 1.35;
+      min-height: 46px;
+    }
+
+    .slide[data-title="海外市场"] .panel.dense li {
+      font-size: 20px;
+      line-height: 1.38;
+    }
+
+    .matrix.compact > div {
+      padding: 12px 16px;
+      font-size: 20px;
+      min-height: 58px;
+    }
+
+    .grid-4.compact {
+      gap: 14px;
+    }
+
+    .grid-4.compact .panel {
+      padding: 16px 18px;
+    }
+
+    .grid-4.compact .panel h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .grid-4.compact .panel p {
+      font-size: 19px;
+      line-height: 1.38;
+    }
+
+    .timeline.compact {
+      margin-top: 8px;
+      border-top-width: 2px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .timeline.compact .event {
+      padding: 14px 14px 0 0;
+    }
+
+    .timeline.compact .event::before {
+      width: 14px;
+      height: 14px;
+      top: -10px;
+      border-width: 3px;
+    }
+
+    .timeline.compact .event .year {
+      font-size: 26px;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .timeline.compact .event-date {
+      font-size: 14px;
+      line-height: 1.3;
+      color: rgba(21, 36, 32, 0.52);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 6px;
+    }
+
+    .timeline.compact .event p {
+      font-size: 17px;
+      line-height: 1.34;
+    }
+
+    /* Hero background image layer (cover + chapter slides) */
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(61, 122, 98, 0.22), transparent),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(184, 120, 50, 0.15), transparent),
+        linear-gradient(145deg, #0a1a14 0%, #0f2a22 55%, #152e26 100%);
+      pointer-events: none;
+    }
+
+    .slide-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .slide-bg.is-loaded img { opacity: 1; }
+    .slide-bg img {
+      opacity: 0;
+      transition: opacity 0.6s var(--ease);
+    }
+
+    .slide--cover .slide-bg img,
+    .slide--chapter .slide-bg img {
+      object-position: 78% center;
+    }
+
+    /* 左侧 50% 深色衬底，右侧留给配图主体 */
+    .slide-bg.is-loaded::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(8, 20, 16, 0.95) 0%,
+        rgba(8, 20, 16, 0.9) 38%,
+        rgba(8, 20, 16, 0.5) 46%,
+        rgba(8, 20, 16, 0.08) 49%,
+        transparent 50%
+      );
+    }
+
+    .slide--chapter .slide-bg.is-loaded::after {
+      background: linear-gradient(
+        90deg,
+        rgba(8, 20, 16, 0.97) 0%,
+        rgba(8, 20, 16, 0.92) 40%,
+        rgba(8, 20, 16, 0.55) 47%,
+        rgba(8, 20, 16, 0.08) 49%,
+        transparent 50%
+      );
+    }
+
+    .slide--cover .slide-inner,
+    .slide--cover .cover-meta,
+    .slide--chapter .slide-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===========================================
+       SPECIAL SLIDES
+       =========================================== */
+    .slide--cover {
+      background: var(--deep);
+      color: var(--cream);
+    }
+
+    .slide--cover .slide-inner {
+      inset: var(--pad-y) auto var(--pad-y) 0;
+      width: var(--hero-copy-width);
+      padding-left: var(--pad-x);
+      padding-right: 56px;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .slide--cover .slide-header { display: none; }
+    .slide--cover h1,
+    .slide--cover .lead { color: var(--cream); }
+    .slide--cover h1 {
+      max-width: 100%;
+      font-size: 72px;
+      line-height: 1.18;
+    }
+    .slide--cover h1 .cover-title-line {
+      display: block;
+    }
+    .slide--cover .lead { max-width: 100%; font-size: 30px; }
+    .slide--cover .kicker { color: var(--copper-light); }
+
+    .slide--cover::before {
+      content: "";
+      position: absolute;
+      top: 48px;
+      bottom: 48px;
+      left: 0;
+      width: var(--hero-copy-width);
+      border: 1px solid rgba(246, 242, 234, 0.12);
+      border-right: none;
+      pointer-events: none;
+    }
+
+    .slide--cover::after {
+      content: "";
+      position: absolute;
+      left: var(--pad-x);
+      width: min(360px, 28vw);
+      top: 50%;
+      margin-top: 96px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--copper), transparent 100%);
+      opacity: 0.75;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .cover-meta {
+      position: absolute;
+      top: 88px;
+      left: 0;
+      width: var(--hero-copy-width);
+      padding-left: var(--pad-x);
+      padding-right: 56px;
+      box-sizing: border-box;
+      font-size: 20px;
+      color: rgba(246, 242, 234, 0.55);
+    }
+
+    .slide--chapter {
+      background: var(--deep);
+      color: var(--cream);
+    }
+
+    .slide--chapter .slide-inner {
+      inset: var(--pad-y) auto var(--pad-y) 0;
+      width: var(--hero-copy-width);
+      padding-left: var(--pad-x);
+      padding-right: 56px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .slide--chapter::before {
+      content: "";
+      position: absolute;
+      top: 48px;
+      bottom: 48px;
+      left: 0;
+      width: var(--hero-copy-width);
+      border: 1px solid rgba(246, 242, 234, 0.1);
+      border-right: none;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .chapter-copy {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .slide--chapter .slide-header { display: none; }
+
+    .chapter-no {
+      font-family: var(--font-display);
+      font-size: 128px;
+      font-weight: 900;
+      line-height: 0.95;
+      color: var(--copper-light);
+      margin-bottom: 8px;
+    }
+
+    .slide--chapter h2 {
+      font-size: 62px;
+      line-height: 1.12;
+      color: var(--cream);
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .slide--chapter p {
+      font-size: 28px;
+      line-height: 1.48;
+      color: rgba(246, 242, 234, 0.76);
+      margin-top: 24px;
+      max-width: 100%;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      flex: 1;
+      margin-top: 28px;
+      min-height: 0;
+    }
+
+    .toc-block {
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 32px 28px 28px;
+      border-top: 5px solid var(--copper);
+    }
+
+    .toc-block:nth-child(2) { border-top-color: var(--sage); }
+    .toc-block:nth-child(3) { border-top-color: var(--deep); }
+
+    .toc-block-no {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--copper);
+      margin-bottom: 10px;
+    }
+
+    .toc-block:nth-child(2) .toc-block-no { color: var(--sage); }
+    .toc-block:nth-child(3) .toc-block-no { color: var(--deep-2); }
+
+    .toc-block h3 {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+
+    .toc-block-desc {
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .toc-block-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .toc-block-list li {
+      font-size: 23px;
+      line-height: 1.42;
+      color: var(--ink-soft);
+      padding: 11px 0;
+      margin: 0;
+      border-bottom: 1px solid rgba(21, 36, 32, 0.08);
+    }
+
+    .toc-block-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .slide--toc .slide-inner {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide--toc h2 {
+      font-size: 56px;
+      max-width: none;
+    }
+
+    /* legacy toc rows — unused */
+    .toc {
+      display: grid;
+      gap: 0;
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .toc-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 480px;
+      gap: 28px;
+      align-items: center;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc-item .num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--copper);
+    }
+
+    .toc-item b {
+      font-size: 32px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .toc-item span {
+      font-size: 22px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ===========================================
+       CHROME (outside slide design)
+       =========================================== */
+    .progress {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      z-index: 1200;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--sage), var(--copper));
+      transition: width 0.25s ease;
+    }
+
+    .help {
+      position: fixed;
+      right: 20px;
+      bottom: 16px;
+      z-index: 1200;
+      color: rgba(246, 242, 234, 0.5);
+      font: 13px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      user-select: none;
+    }
+
+    .help button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      padding: 0 2px;
+      cursor: pointer;
+    }
+
+    .help button:hover {
+      color: var(--copper-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .notes { display: none; }
+
+    /* ===========================================
+       SLIDE NAVIGATOR — left sidebar (click toggle)
+       =========================================== */
+    .nav-dock {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1300;
+      display: flex;
+      align-items: stretch;
+      pointer-events: none;
+    }
+
+    .nav-trigger {
+      pointer-events: auto;
+      align-self: center;
+      appearance: none;
+      border: 1px solid rgba(246, 242, 234, 0.16);
+      border-left: 0;
+      background: rgba(10, 26, 20, 0.9);
+      backdrop-filter: blur(10px);
+      color: rgba(246, 242, 234, 0.85);
+      font: 600 13px/1.2 var(--font-body);
+      letter-spacing: 0.04em;
+      padding: 14px 10px;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav-trigger:hover,
+    .nav-dock.is-open .nav-trigger {
+      background: rgba(15, 42, 34, 0.96);
+      border-color: rgba(184, 120, 50, 0.45);
+      color: var(--cream);
+    }
+
+    .nav-panel {
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: rgba(10, 26, 20, 0.96);
+      backdrop-filter: blur(14px);
+      border-right: 1px solid rgba(246, 242, 234, 0.1);
+      box-shadow: 8px 0 40px rgba(0, 0, 0, 0.32);
+      transition: width 0.32s var(--ease), opacity 0.24s var(--ease);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .nav-dock.is-open .nav-panel {
+      width: min(300px, 78vw);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-panel-inner {
+      width: min(300px, 78vw);
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .nav-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid rgba(246, 242, 234, 0.1);
+      flex-shrink: 0;
+    }
+
+    .nav-panel-head b {
+      font-size: 15px;
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    .nav-panel-head span {
+      display: block;
+      font-size: 12px;
+      color: rgba(246, 242, 234, 0.48);
+      font-variant-numeric: tabular-nums;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .nav-groups {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+      padding: 10px 8px 16px 12px;
+      display: grid;
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(184, 120, 50, 0.55) rgba(246, 242, 234, 0.06);
+    }
+
+    .nav-groups::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .nav-groups::-webkit-scrollbar-track {
+      background: transparent;
+      margin: 6px 0;
+    }
+
+    .nav-groups::-webkit-scrollbar-thumb {
+      background: rgba(184, 120, 50, 0.38);
+      border-radius: 999px;
+      border: 1px solid rgba(10, 26, 20, 0.4);
+    }
+
+    .nav-groups::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 160, 90, 0.62);
+    }
+
+    .nav-groups::-webkit-scrollbar-thumb:active {
+      background: rgba(212, 160, 90, 0.78);
+    }
+
+    .nav-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--copper-light);
+      padding: 0 8px;
+      margin-bottom: 2px;
+    }
+
+    .nav-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .nav-item {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(246, 242, 234, 0.72);
+      font: 500 13px/1.35 var(--font-body);
+      text-align: left;
+      padding: 9px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 8px;
+      align-items: center;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .nav-item:hover {
+      background: rgba(61, 122, 98, 0.16);
+      color: var(--cream);
+    }
+
+    .nav-item.is-current {
+      background: rgba(184, 120, 50, 0.18);
+      border-color: rgba(184, 120, 50, 0.4);
+      color: #fff;
+    }
+
+    .nav-item .idx {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      color: rgba(246, 242, 234, 0.38);
+    }
+
+    .nav-item.is-current .idx { color: var(--copper-light); }
+
+    .contract-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .contract-meta .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: rgba(61, 122, 98, 0.1);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--deep);
+    }
+
+    .contract-meta .tag strong {
+      color: var(--copper);
+      font-weight: 800;
+    }
+
+    @media print {
+      html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+      .deck-viewport { position: static; overflow: visible; background: #fff; }
+      .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; box-shadow: none; }
+      .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+      }
+      .slide:last-child { break-after: auto; page-break-after: auto; }
+      .progress, .help, .nav-dock { display: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-viewport" id="deckViewport">
+    <main class="deck-stage" id="stage">
+
+      <!-- 封面 -->
+      <section class="slide slide--cover active" data-title="封面" data-section="开篇">
+        <div class="slide-bg" data-image="assets/cover.png">
+          <img src="assets/cover.png" alt="" />
+        </div>
+        <div class="cover-meta">
+          <span>天然橡胶 · 期货现货 · 产业应用</span>
+        </div>
+        <div class="slide-inner">
+          <div class="kicker reveal">Rubber, Futures and Physical Goods</div>
+          <h1 class="reveal"><span class="cover-title-line">天然橡胶</span><span class="cover-title-line">期货现货专题</span></h1>
+          <p class="lead reveal mt-md">天然橡胶贸易、定价与风险管理</p>
+        </div>
+        <aside class="notes">开场介绍专题背景与结构。</aside>
+      </section>
+
+      <!-- 目录 -->
+      <section class="slide slide--toc" data-title="目录" data-section="开篇">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">目录</span>
+            <span class="page-no">01</span>
+          </div>
+          <h2 class="reveal">天然橡胶期货现货专题</h2>
+          <div class="toc-grid reveal">
+            <div class="toc-block">
+              <span class="toc-block-no">01</span>
+              <h3>期货合约</h3>
+              <p class="toc-block-desc">产业背景、品种分工与合约规则</p>
+              <ul class="toc-block-list">
+                <li>产业格局</li>
+                <li>品种结构</li>
+                <li>天然橡胶 RU</li>
+                <li>20 号胶 NR</li>
+                <li>丁二烯橡胶 BR</li>
+                <li>成交规模</li>
+                <li>海外市场</li>
+              </ul>
+            </div>
+            <div class="toc-block">
+              <span class="toc-block-no">02</span>
+              <h3>交易策略</h3>
+              <p class="toc-block-desc">跨期、跨市场、期现三类价差</p>
+              <ul class="toc-block-list">
+                <li>价差概览</li>
+                <li>跨期价差</li>
+                <li>跨市场价差</li>
+                <li>期现基差</li>
+                <li>贸易口径</li>
+              </ul>
+            </div>
+            <div class="toc-block">
+              <span class="toc-block-no">03</span>
+              <h3>库存融资</h3>
+              <p class="toc-block-desc">现货与仓单对接银行融资</p>
+              <ul class="toc-block-list">
+                <li>融资概览</li>
+                <li>货物质押</li>
+                <li>买卖式融资</li>
+                <li>标准仓单质押</li>
+                <li>方式比较</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 第一部分：期货合约 ===== -->
+      <section class="slide slide--chapter" data-title="期货合约" data-section="期货合约">
+        <div class="slide-bg" data-image="assets/chapter-01.png">
+          <img src="assets/chapter-01.png" alt="" />
+        </div>
+        <div class="slide-inner">
+          <div class="chapter-copy">
+            <div class="chapter-no reveal">01</div>
+            <h2 class="reveal">期货合约</h2>
+            <p class="reveal">产业格局、RU / NR / BR 品种分工，以及成交规模与海外参照。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="产业格局" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">03</span>
+          </div>
+          <h2 class="reveal">天然橡胶：战略物资、消费大国、进口依赖高</h2>
+          <div class="grid-3 mt-md reveal">
+            <div class="metric dense"><div class="value">658.1万</div><div class="label">2024 年中国天然橡胶表观消费量（吨）</div></div>
+            <div class="metric dense"><div class="value">~46%</div><div class="label">占全球消费总量比重</div></div>
+            <div class="metric dense"><div class="value">92.2万</div><div class="label">2024 年国产天然橡胶产量（吨，创历史新高）</div></div>
+            <div class="metric dense"><div class="value">565.9万</div><div class="label">2024 年天然橡胶进口量（吨）</div></div>
+            <div class="metric dense"><div class="value">~80%</div><div class="label">进口依赖度长年维持在这一水平</div></div>
+            <div class="metric dense"><div class="value">1800万</div><div class="label">国家划定天然橡胶生产保护区（亩）</div></div>
+          </div>
+          <div class="grid-3 mt-md reveal">
+            <div class="panel dense">
+              <h3>国内供给</h3>
+              <ul>
+                <li>2024 年国产产量 92.2 万吨，植胶面积超 1700 万亩，主产区为海南、云南、广东</li>
+                <li>与石油、钢铁、煤炭并列，属于世界四大工业原料和重要战略物资</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>消费与下游</h3>
+              <ul>
+                <li>中国是全球最大天然橡胶消费国，广泛应用于交通、医疗、国防和工业领域</li>
+                <li>约 70% 天然胶用于轮胎制造，其中约 80% 使用 20 号胶</li>
+                <li>我国也是全球最大 20 号胶消费国和轮胎生产国，需求长期刚性</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>进口与贸易</h3>
+              <ul>
+                <li>2024 年进口 565.9 万吨，表观消费 658.1 万吨，进口高度依赖东南亚</li>
+                <li>20 号胶主要自泰国、马来西亚、印度尼西亚进口，多以保税方式进入国内</li>
+                <li>青岛、上海、宁波、天津等口岸是主要进境和集散节点</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-md reveal" style="font-size:23px;line-height:1.48;color:var(--muted);">2006 年起，上期所天然橡胶期货成交规模持续位居全球同类品种首位；2019 年 20 号胶 NR 在上期能源上市后，境内完税与跨境保税两条贸易链逐步形成对应的场内定价工具。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="品种结构" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">04</span>
+          </div>
+          <h2 class="reveal">国内三个期货合约</h2>
+          <div class="matrix cols-4 compact mt-sm reveal">
+            <div class="head">合约</div><div class="head">对应橡胶</div><div class="head">主要用途</div><div class="head">主要风险</div>
+            <div class="rowhead">RU</div><div>天然橡胶：国产 SCR WF、进口 RSS3</div><div>轮胎、胶管、胶带、制品；国内完税现货与仓单定价</div><div>国产/进口资源、仓单、季节性、国内需求</div>
+            <div class="rowhead">NR</div><div>20 号胶 / TSR20 / STR20：技术分级块状天然胶</div><div>轮胎工业主流原料；保税进口、跨境长约贸易</div><div>跨境贸易、汇率、保税交割、境外客户参与</div>
+            <div class="rowhead">BR</div><div>丁二烯橡胶 / 顺丁橡胶（BR9000）：合成橡胶</div><div>轮胎胎面、耐寒耐磨制品；与天然胶配方替代/互补</div><div>丁二烯、石脑油、装置开工、合成胶库存</div>
+          </div>
+          <div class="subsection-label compact reveal">为什么要分品种</div>
+          <div class="grid-4 compact reveal">
+            <div class="panel dense">
+              <h3>物理形态不同</h3>
+              <p>烟片（RSS3）、标准胶（SCR WF）、20 号胶（STR20）、合成胶（BR9000）的包装、质量指标和轮胎配方用量不同，不能简单互换。</p>
+            </div>
+            <div class="panel dense">
+              <h3>贸易状态不同</h3>
+              <p>RU 以国内完税交割为主，报价含税；NR 强调不含税报价、保税交割和境外客户参与，对应进口贸易链。</p>
+            </div>
+            <div class="panel dense">
+              <h3>下游需求不同</h3>
+              <p>轮胎企业对 20 号胶（NR）更敏感；制品企业、贸易商和仓单持有人对 RU 更直接；BR 服务合成胶采购。</p>
+            </div>
+            <div class="panel dense">
+              <h3>成本驱动不同</h3>
+              <p>天然胶看割胶、天气、进口、库存；BR 还与丁二烯、石脑油和石化装置开工相关——分品种更贴近各自的贸易与定价逻辑。</p>
+            </div>
+          </div>
+          <div class="subsection-label compact reveal">国内品种扩展时间线</div>
+          <div class="timeline compact reveal">
+            <div class="event"><div class="year">1993年03月</div><div class="event-date">1993-03-27</div><p>天然橡胶 RU 在上期所上市</p></div>
+            <div class="event"><div class="year">2019年01月</div><div class="event-date">2019-01-28</div><p>天然橡胶期权在上期所上市</p></div>
+            <div class="event"><div class="year">2019年08月</div><div class="event-date">2019-08-12</div><p>20 号胶 NR 在上期能源上市</p></div>
+            <div class="event"><div class="year">2022年12月</div><div class="event-date">2022-12-15</div><p>20 号胶保税标准仓单交易上线</p></div>
+            <div class="event"><div class="year">2023年07月</div><div class="event-date">2023-07-28</div><p>丁二烯橡胶 BR 期货及期权上市</p></div>
+            <div class="event"><div class="year">2025年05月</div><div class="event-date">2025-05-26</div><p>大阪所以 RU 交割结算价为基准的现金结算合约上市</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="天然橡胶 RU" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">05</span>
+          </div>
+          <h2 class="reveal">RU：国内天然橡胶价格锚</h2>
+          <div class="contract-meta reveal">
+            <span class="tag"><strong>1993-03-27</strong> 上市</span>
+            <span class="tag">上海期货交易所 SHFE</span>
+            <span class="tag">合约修订版 2024-11-13</span>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>合约概况</h3>
+              <ul>
+                <li>10 吨/手；报价元/吨（含税）；最小变动 5 元/吨；涨跌停 ±3%</li>
+                <li>合约月份 1、3、4、5、6、7、8、9、10、11 月</li>
+                <li>最低交易保证金 5%（随持仓量、临近交割月上调）</li>
+                <li>最后交易日：合约月份 15 日；交割：最后交易日后连续 2 个工作日</li>
+                <li>配套天然橡胶期权（2019-01-28 上市）</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>交割品级</h3>
+              <ul>
+                <li>国产 SCR WF：国标 GB/T8081-2018，<strong>注册品牌</strong>交割</li>
+                <li>进口 RSS3：《绿皮书》（1979 版），泰/马/印尼/斯里兰卡等，<strong>产地认证</strong>交割</li>
+                <li>截至 2024 年底：8 个国内注册品牌 + 进口 RSS3</li>
+                <li>交割仓库布局：上海、山东、云南、海南等传统消费与集散地</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>市场地位（2024）</h3>
+              <ul>
+                <li>全年成交 10,768.33 万手（+24.10%），成交额 17.36 万亿元（+53.35%）</li>
+                <li>日均持仓 25.48 万手；规模持续居全球同类品种首位</li>
+                <li>2025-05-26 大阪所挂牌引用 RU 交割结算价的现金结算合约</li>
+                <li>2025-06-18 纳入合格境外投资者可交易品种</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>典型参与者</h3>
+              <ul>
+                <li>上游：海南/云南/广东胶厂、进口烟片贸易商</li>
+                <li>中游：橡胶贸易、仓储、仓单注册与注销、期转现</li>
+                <li>下游：轮胎、制品企业；「保险+期货」收入险参考 RU 主力合约价格</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="20 号胶 NR" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">06</span>
+          </div>
+          <h2 class="reveal">NR：面向跨境贸易的 20 号胶合约</h2>
+          <div class="contract-meta reveal">
+            <span class="tag"><strong>2019-08-12</strong> 上市</span>
+            <span class="tag">上海国际能源交易中心 INE</span>
+            <span class="tag">境内特定品种 · 国际化平台</span>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>合约概况</h3>
+              <ul>
+                <li>10 吨/手；报价元/吨（<strong>不含税</strong>）；最小变动 5 元/吨；涨跌停 ±5%</li>
+                <li>合约月份 1–12 月；最低交易保证金 7%（随持仓量、交割月上调）</li>
+                <li>最后交易日：交割月 15 日；交割：最后交易日后连续 5 个交易日</li>
+                <li>模式：「国际平台、净价交易、保税交割、人民币计价」</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>交割品级</h3>
+              <ul>
+                <li>STR20 / SCR20 / SMR20 / SIR20 等 20 号胶，符合 INE 质量标准</li>
+                <li>同一生产企业、同一品牌、同一包装规格；每块 35kg，每托 1.26 吨</li>
+                <li>截至 2024 年底：注册商品 <strong>27 家企业、43 家工厂</strong>（中 4 / 泰 16 / 马 2 / 印尼 5）</li>
+                <li>实物交割 + 保税交割 + 仓库交割；2022-12-15 保税标准仓单交易上线</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>市场地位（2024）</h3>
+              <ul>
+                <li>全年成交 2,810.79 万手（+44.47%），成交额 3.70 万亿元（+86.68%）</li>
+                <li>日均持仓 10.23 万手；年交割 17.72 万吨（+6.23%）</li>
+                <li>境外客户数 +14%，境外日均持仓占比 +16%</li>
+                <li>2023 年以 NR 定价的跨境实货贸易量近 <strong>200 万吨</strong>，逐步成为跨境定价「锚」</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>典型参与者</h3>
+              <ul>
+                <li>境外：四种参与模式（直接代理 / 转委托 / 特殊经纪 / 特殊非经纪）</li>
+                <li>境内：轮胎厂、贸易商、仓储；泰华树胶、联润橡胶、赛轮等签定价基准备忘录</li>
+                <li>交割布局：上海、山东、海南为主，并拓展至天津等新消费区域</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="丁二烯橡胶 BR" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">07</span>
+          </div>
+          <h2 class="reveal">BR：合成橡胶价格风险进入场内</h2>
+          <div class="contract-meta reveal">
+            <span class="tag"><strong>2023-07-28</strong> 期货及期权上市</span>
+            <span class="tag">上海期货交易所 SHFE</span>
+            <span class="tag">合约文本 2023-07-26</span>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>合约概况</h3>
+              <ul>
+                <li>5 吨/手；报价元/吨；最小变动 5 元/吨；涨跌停 ±5%</li>
+                <li>合约月份 1–12 月；最低交易保证金 7%（随上市阶段、持仓量上调）</li>
+                <li>最后交易日：交割月 15 日；交割：最后交易日后连续 2 个工作日</li>
+                <li>2023 年 7 月期货、期权同步挂牌，补齐天然胶 + 合成胶工具链</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>交割品级</h3>
+              <ul>
+                <li>丁二烯橡胶，符合或优于 GB/T 8659-2018《BR9000》<strong>I 类</strong>指标</li>
+                <li>标准仓单 10 吨/张，须为交易所<strong>认证商品</strong>；同一企业、品牌、牌号、包装</li>
+                <li>生产日期不超过连续 30 日；包装 25kg/袋（牛皮纸 + PE 内衬）</li>
+                <li>交割方式：<strong>指定仓库 + 厂库</strong>并行（厂库延续直供模式、降低物流检验成本）</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>市场地位（2024）</h3>
+              <ul>
+                <li>全年成交 2,727.92 万手，成交额 1.97 万亿元（19,746 亿元）</li>
+                <li>年交割 4.26 万吨；期权成交 1,085.42 万手，行权 3.92 万手</li>
+                <li>2024-07-05 丁二烯橡胶标准仓单交易上线综合业务平台</li>
+                <li>期现价格联动紧密，功能发挥逐步显现</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>典型参与者</h3>
+              <ul>
+                <li>顺丁橡胶标准化高、牌号单一（BR9000）、我国为最大生产消费国</li>
+                <li>价格驱动：丁二烯/石脑油、装置开工、合成胶库存；与 RU/NR 配方替代</li>
+                <li>合成橡胶厂、贸易商；轮胎厂锁定合成胶采购、管理天然胶—合成胶价差</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="成交规模" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">08</span>
+          </div>
+          <h2 class="reveal">从成交规模看：RU 最成熟，NR 和 BR 也已经有市场</h2>
+          <div class="grid-3 mt-md reveal">
+            <div class="metric dense"><div class="value">10,768</div><div class="label">RU 年成交量（万手）；+24.10%；日均持仓 25.48 万手</div></div>
+            <div class="metric dense"><div class="value">2,811</div><div class="label">NR 年成交量（万手，2,810.79）；+44.47%；日均持仓 10.23 万手</div></div>
+            <div class="metric dense"><div class="value">2,728</div><div class="label">BR 年成交量（万手，2,727.92）；成交额 1.97 万亿元；年交割 4.26 万吨</div></div>
+          </div>
+          <div class="bars mt-sm reveal">
+            <div class="bar-row"><b>RU 成交额</b><div class="bar"><span style="width:100%"></span></div><span>17.36 万亿（+53.4%）</span></div>
+            <div class="bar-row"><b>NR 成交额</b><div class="bar"><span style="width:21%"></span></div><span>3.70 万亿</span></div>
+            <div class="bar-row"><b>BR 成交额</b><div class="bar"><span style="width:11%"></span></div><span>1.97 万亿（19,746 亿）</span></div>
+          </div>
+          <div class="grid-3 mt-md reveal">
+            <div class="panel dense">
+              <h3>RU：国内基准</h3>
+              <p>历史最久、流动性最好；2006 年起成交规模长期居全球同类品种首位，也是「上海胶」走向海外的核心品种。</p>
+            </div>
+            <div class="panel dense">
+              <h3>NR：跨境定价</h3>
+              <p>境外交易者参与，保税交割与标准仓单体系完善；越来越多进口贸易和长约合同参考 NR 定价。</p>
+            </div>
+            <div class="panel dense">
+              <h3>BR：合成胶补充</h3>
+              <p>2024 年成交 2,727.92 万手；2024-07-05 标准仓单交易上线；与 RU/NR 覆盖轮胎配方完整敞口。</p>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">已形成覆盖 RU 期货期权、NR 期货、BR 期货期权及保税仓单的多层次天然橡胶衍生品体系。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="海外市场" data-section="期货合约">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约</span>
+            <span class="page-no">09</span>
+          </div>
+          <h2 class="reveal">海外橡胶期货：日本 OSE 与新加坡 SGX 是跨境参照主战场</h2>
+          <div class="grid-3 mt-sm reveal">
+            <div class="metric dense"><div class="value">1952</div><div class="label">OSE RSS3 挂牌，全球最老牌烟片期货之一</div></div>
+            <div class="metric dense"><div class="value">5 吨</div><div class="label">OSE / SGX 主流合约规模（RU、NR 为 10 吨/手）</div></div>
+            <div class="metric dense"><div class="value">2025-05</div><div class="label">OSE「上海天然橡胶」上市，直接跟踪 SHFE RU 交割结算价</div></div>
+          </div>
+          <div class="matrix cols-4-wide compact mt-sm reveal">
+            <div class="head">合约</div><div class="head">报价 / 规模</div><div class="head">交割特点</div><div class="head">与国内品种的对照</div>
+            <div class="rowhead">OSE RSS3</div><div>日元；5 吨/手；1952 年上市</div><div>烟片 3 号实物交割；成交偏浅</div><div>对照 RU 进口 RSS3；浅色胶跨境价差参照</div>
+            <div class="rowhead">OSE TSR20</div><div>日元；5 吨/手；2018 年上市</div><div>泰标 STR20；FOB 曼谷 / 林查班 / 槟城</div><div>与 NR、SGX TSR20 构成 20 号胶定价三角</div>
+            <div class="rowhead">SGX TSR20</div><div>美元；5 吨；代码 TF</div><div>实物交割；全月份；流动性最好</div><div>进口长约与到港套保最常用外盘</div>
+            <div class="rowhead">SGX RSS3</div><div>美元；5 吨；代码 RT</div><div>烟片实物交割；SICOM 现货参照</div><div>与 OSE RSS3 交叉验证烟片跨境价差</div>
+            <div class="rowhead">OSE 上海胶</div><div>日元；2025-05 挂牌；1/5/9 月</div><div>现金结算；跟踪 RU 交割结算价</div><div>海外资金以日元参与「上海胶」</div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>OSE「上海天然橡胶」的意义</h3>
+              <ul>
+                <li>SHFE 授权 RU 交割结算价，日元现金结算、无实物交割</li>
+                <li>2025 年 7 月起 RU 交割结算价算法调整，OSE 自 9 月合约同步</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>横向比较时的口径提醒</h3>
+              <ul>
+                <li>统一币种与含税/不含税；叠加港口升贴水与运费</li>
+                <li>SGX 日盘 + 夜盘，与 RU/NR 存在时段错配</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">海外盘为进口贸易与跨境长约提供第二套参照，不替代 RU/NR 的境内定价功能。</p>
+        </div>
+      </section>
+
+      <!-- ===== 第二部分：交易策略 ===== -->
+      <section class="slide slide--chapter" data-title="交易策略" data-section="交易策略">
+        <div class="slide-bg" data-image="assets/chapter-02.png">
+          <img src="assets/chapter-02.png" alt="" />
+        </div>
+        <div class="slide-inner">
+          <div class="chapter-copy">
+            <div class="chapter-no reveal">02</div>
+            <h2 class="reveal">交易策略</h2>
+            <p class="reveal">跨期、跨市场、期现三类价差，及其与橡胶贸易的大致关系。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="价差概览" data-section="交易策略">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">交易策略</span>
+            <span class="page-no">11</span>
+          </div>
+          <h2 class="reveal">橡胶贸易中常见的三类价差</h2>
+          <div class="grid-3 mt-md reveal">
+            <div class="panel dense">
+              <h3>跨期价差</h3>
+              <p>同一品种不同月份：近月 vs 远月。常见讨论点包括库存、仓单、季节性、资金和交割压力。</p>
+              <p style="margin-top:10px;font-size:20px;color:var(--ink-soft);">例：RU 常提到 1/5/9 主力月、新老胶切换和仓单注销节奏。</p>
+            </div>
+            <div class="panel dense">
+              <h3>跨市场价差</h3>
+              <p>不同品种或不同交易市场：RU–NR、NR–SGX TSR20、RU–OSE RSS3 等。</p>
+              <p style="margin-top:10px;font-size:20px;color:var(--ink-soft);">例：进口 20 号胶贸易同时看 NR 与海外 TSR20，再叠加汇率和港口升贴水。</p>
+            </div>
+            <div class="panel dense">
+              <h3>期现基差</h3>
+              <p>现货价格 − 期货价格。反映库存、品牌升贴水、仓单注册能力和交割预期。</p>
+              <p style="margin-top:10px;font-size:20px;color:var(--ink-soft);">例：轮胎厂采购现货同时卖 RU/NR 锁定成本；贸易商注册仓单做升贴水回归。</p>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">三类价差的背后，往往是不同月份、不同市场、期现两端在持有成本和贸易口径上的差异。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="跨期价差" data-section="交易策略">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">交易策略</span>
+            <span class="page-no">12</span>
+          </div>
+          <h2 class="reveal">跨期：近远月价差在谈什么</h2>
+          <div class="grid-2 mt-md reveal">
+            <div class="panel dense">
+              <h3>常见情形</h3>
+              <ul>
+                <li>正套：买近月、卖远月——近月偏紧、库存去化或交割前现货偏强</li>
+                <li>反套：卖近月、买远月——近月仓单压力大、远月预期改善</li>
+                <li>RU 常联系到 1、5、9 月主力及割胶旺季（约 5–9 月）和新胶上市</li>
+                <li>NR 还会谈到进口到港节奏和保税库存</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>通常会谈到</h3>
+              <ul>
+                <li>临近交割月：限仓、保证金、交割品级和品牌升贴水</li>
+                <li>仓单：注册量、有效期、注销节奏、仓库位置和出库费用</li>
+                <li>月差背后还涉及资金利息、手续费、滑点和可能的交割成本</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">跨期价差更多反映近远月定价与库存、仓单、季节性之间的关系，而不只是单一方向的涨跌判断。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="跨市场价差" data-section="交易策略">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">交易策略</span>
+            <span class="page-no">13</span>
+          </div>
+          <h2 class="reveal">跨市场：不同胶种、地区与币种之间的参照</h2>
+          <div class="matrix cols-4-wide mt-md reveal">
+            <div class="head">组合</div><div class="head">常见语境</div><div class="head">口径差异</div><div class="head">主要风险</div>
+            <div class="rowhead">RU − NR</div><div>浅色胶与 20 号胶的结构性价差；轮胎配方中天然胶不同品级</div><div>含税/不含税、品质升贴水、仓单注册规则、交割区域</div><div>胶种替代不完全、交割约束不同、RU 仓单压力与 NR 保税库存节奏不同步</div>
+            <div class="rowhead">NR − SGX TSR20</div><div>进口 20 号胶长约定价、到港套保、保税转一般贸易</div><div>美元/人民币、13% 增值税口径、海运/保险、港口升贴水、保税仓费用</div><div>汇率波动、境内外交易时段错配、海外盘流动性、到港与报关时滞</div>
+            <div class="rowhead">RU − OSE RSS3</div><div>烟片胶跨境参照；浅色胶进口与国内仓单定价对照</div><div>日元/人民币、RSS3 品质规格、仓库位置、交割规则差异</div><div>成交深度不足、交割地分散、烟片与 SCR WF 配方差异</div>
+            <div class="rowhead">RU − OSE 上海胶</div><div>海外投资者直接参考「上海胶」；境内外 RU 价格联动观察</div><div>日元计价、引用 RU 交割结算价、现金结算无实物交割</div><div>两地交易时段、节假日、汇率与基差传导时滞</div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>比较时要统一的口径</h3>
+              <ul>
+                <li>价格常需统一到「元/吨」或「美元/吨」后再横向参照</li>
+                <li>RU 含税、NR 不含税——跨品种比较要还原增值税差异</li>
+                <li>港口升贴水、品牌差、运费和仓储也会影响表观价差</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>容易忽略的差异</h3>
+              <ul>
+                <li>RU 和 NR 配方、交割规则不同，并不完全可互换</li>
+                <li>保税货还有海关监管——NR 相关头寸与 RU 交割路径并不相同</li>
+                <li>盘面价差之外，资金占用和换月成本也会影响实际贸易感受</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">跨市场价差讨论时，RU（含税完税）、NR（不含税保税）与海外盘（汇率、交割地升贴水）往往需要放在同一口径下理解。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="期现基差" data-section="交易策略">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">交易策略</span>
+            <span class="page-no">14</span>
+          </div>
+          <h2 class="reveal">期现基差：现货与期货价格的关系</h2>
+          <div class="grid-2 mt-md reveal">
+            <div class="panel dense">
+              <h3>买现货 + 卖期货</h3>
+              <p>期货升水较高、现货可注册仓单或可锁定销售时较常见。价差变化来自基差（升水）的收敛。</p>
+              <ul>
+                <li>涉及：资金占用、仓储、检验、品牌升贴水、交割费用</li>
+                <li>常见说法：贸易商收现货后卖 RU/NR；轮胎厂采购同时卖出套保</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>卖现货 + 买期货</h3>
+              <p>持货方释放库存，或现货偏紧、期货贴水时出现。</p>
+              <ul>
+                <li>还会谈到未来能否稳定买回或接货</li>
+                <li>常见说法：去库存回笼资金，同时保留未来采购敞口</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flow mt-sm reveal">
+            <div class="step"><b>1</b><p>确认现货规格、品牌、仓库和权属</p></div>
+            <div class="step"><b>2</b><p>梳理基差、资金、仓储、税费等口径</p></div>
+            <div class="step"><b>3</b><p>期货端建立对应头寸</p></div>
+            <div class="step"><b>4</b><p>仓单注册/注销或现货交收</p></div>
+            <div class="step"><b>5</b><p>平仓或交割，回看过程中的价差变化</p></div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>升贴水大致含义</h3>
+              <ul>
+                <li>升水（期货 &gt; 现货）：正向市场较常见，常与仓单注册成本和升水变化联系在一起</li>
+                <li>贴水（期货 &lt; 现货）：现货偏紧或交割品短缺时出现</li>
+                <li>RU/NR 基差还会区分品牌升贴水、仓库位置和交割月份</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>行业里常见的说法</h3>
+              <ul>
+                <li>轮胎厂：采购现货 + 卖出 RU/NR，管理配方原料成本</li>
+                <li>贸易商：收现货注册仓单，同时持有期货空头</li>
+                <li>加工厂：产成标准胶后注册仓单，卖出对应月份合约</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="贸易口径" data-section="交易策略">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">交易策略</span>
+            <span class="page-no">15</span>
+          </div>
+          <h2 class="reveal">价差业务里还会牵涉到的几个口径</h2>
+          <div class="grid-3 mt-md reveal">
+            <div class="panel dense"><h3>价格口径</h3><p>RU 含税、NR 不含税；人民币/美元/日元；现货升贴水、港口费用在横向比较时往往需要统一。</p></div>
+            <div class="panel dense"><h3>交割口径</h3><p>品牌能否注册仓单、SCR WF / RSS3 / STR20 是否可交割、仓库库容和出库节奏。</p></div>
+            <div class="panel dense"><h3>资金口径</h3><p>保证金、融资利息、追加保证金；期现两端现金流时间错配也会带来额外成本。</p></div>
+            <div class="panel dense"><h3>质量口径</h3><p>年份、产地、包装、杂质和检验争议会影响实际交割感受；保税货还有海关监管要求。</p></div>
+            <div class="panel dense"><h3>流动性口径</h3><p>RU/NR 主力合约流动性较好，远月、BR 个别月份和海外盘的成交深度则相对有限。</p></div>
+            <div class="panel dense"><h3>法律口径</h3><p>货权、仓单、保税监管、质押状态、长约回购条款，都是贸易和交割讨论里常提到的背景。</p></div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">同一组价差，在不同口径下呈现的样子可能差别很大——这也是橡胶期现业务讨论里经常展开的部分。</p>
+        </div>
+      </section>
+
+      <!-- ===== 第三部分：融资 ===== -->
+      <section class="slide slide--chapter" data-title="库存融资" data-section="库存融资">
+        <div class="slide-bg" data-image="assets/chapter-03.png">
+          <img src="assets/chapter-03.png" alt="" />
+        </div>
+        <div class="slide-inner">
+          <div class="chapter-copy">
+            <div class="chapter-no reveal">03</div>
+            <h2 class="reveal">库存融资</h2>
+            <p class="reveal">货物质押、买卖式融资与标准仓单质押等常见做法。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="融资概览" data-section="库存融资">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">库存融资</span>
+            <span class="page-no">17</span>
+          </div>
+          <h2 class="reveal">三类常见融资结构</h2>
+          <div class="grid-3 mt-md reveal">
+            <div class="panel dense">
+              <h3>货物直接质押</h3>
+              <p>借款人、银行、监管仓库三方合作；货物入库监管，按质押率放款。</p>
+              <ul>
+                <li>常见于：非标现货、尚未注册仓单的库存</li>
+                <li>涉及：仓库资质、货权清晰、价格监控</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>买卖式融资</h3>
+              <p>企业将货物卖给银行或其合作主体获得资金，到期按含利息价格买回。</p>
+              <ul>
+                <li>常见于：有真实贸易背景、需快速回笼现金</li>
+                <li>涉及：买卖真实性、回购条款、跌价处置</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>标准仓单质押</h3>
+              <p>交易所标准仓单或保税标准仓单质押，资金可用于流动资金或期货保证金。</p>
+              <ul>
+                <li>常见于：已注册 RU/NR 标准仓单或保税仓单</li>
+                <li>涉及：质押率、线上流转、追加保证金</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid-3 mt-sm reveal">
+            <div class="metric dense"><div class="value">52 亿+</div><div class="label">2024 年末上期综合业务平台线上质押融资规模</div></div>
+            <div class="metric dense"><div class="value">80%</div><div class="label">部分业务质押率上限参考（视银行与品种而定）</div></div>
+            <div class="metric dense"><div class="value">3 类</div><div class="label">仓库、厂库、延伸及保税标准仓单均可线上质押</div></div>
+          </div>
+          <p class="lead mt-sm reveal">有标准仓单时，仓单质押因确权清晰、流程成熟而较常见；非标现货多走货押；买卖式则多见于有贸易背景、需要快速变现的情形。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="货物质押" data-section="库存融资">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">库存融资</span>
+            <span class="page-no">18</span>
+          </div>
+          <h2 class="reveal">货押：银行最关心货权和监管闭环</h2>
+          <div class="flow mt-sm reveal">
+            <div class="step"><b>1 入库</b><p>货物进入银行认可仓库，出具入库单</p></div>
+            <div class="step"><b>2 评估</b><p>确认品类、质量、数量、现货价格</p></div>
+            <div class="step"><b>3 质押</b><p>签质押合同，仓库出监管证明</p></div>
+            <div class="step"><b>4 放款</b><p>按质押率发放短期资金</p></div>
+            <div class="step"><b>5 解押</b><p>还款后解除监管并提货</p></div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>特点与适用</h3>
+              <ul>
+                <li>适用非标准仓单现货：在途货、港口货、未注册仓单的仓库库存</li>
+                <li>业务灵活，贸易商、胶厂、轮胎厂均可使用</li>
+                <li>可与套保结合：持货融资同时用 RU/NR 对冲跌价风险</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>常见约束</h3>
+              <ul>
+                <li>仓库通常在银行认可名单内，监管协议覆盖控货、控单、控价</li>
+                <li>货权瑕疵、重复质押、私自出库是历史上较受关注的环节</li>
+                <li>橡胶价格跌破预警线时，往往涉及追加保证金或补充质押物</li>
+                <li>质押率通常低于仓单质押，且受品牌、仓库位置影响</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">货押多见于尚未形成标准仓单的现货库存，灵活度较高，但对仓库和货权管理的要求也更细。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="买卖式融资" data-section="库存融资">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">库存融资</span>
+            <span class="page-no">19</span>
+          </div>
+          <h2 class="reveal">买卖式融资：卖出获得资金，买回价格体现利息</h2>
+          <div class="formula reveal">买回价格 = 初始销售价格 + 融资利息 + 仓储/保险/服务费</div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>业务含义</h3>
+              <ul>
+                <li>企业先把橡胶货物卖给银行或其合作主体，实现现金回笼</li>
+                <li>到期再按约定价格买回，利息隐含在买回价格中</li>
+                <li>形式上完成货权转移，实质是短期融资</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>通常会谈到</h3>
+              <ul>
+                <li>交易是否具备真实买卖基础（合同、发票、物流）</li>
+                <li>货权是否实际转移、货物由谁保管</li>
+                <li>跌价如何补足：预警线、追加保证金或提前处置</li>
+                <li>不能买回时如何处置：拍卖、转售、协商展期</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>橡胶场景</h3>
+              <p>进口到港后需付货款但尚未销售；加工厂产成胶后需回笼资金采购原料；贸易商在价格高位持货想释放流动性但保留回购权。</p>
+            </div>
+            <div class="panel dense">
+              <h3>合同与合规</h3>
+              <p>实务中会关注「名为买卖、实为借贷」的认定，以及回购价格、处置条款、货权归属等合同安排。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="标准仓单质押" data-section="库存融资">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">库存融资</span>
+            <span class="page-no">20</span>
+          </div>
+          <h2 class="reveal">标准仓单质押：用交易所标准化确权降低融资摩擦</h2>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>银行流动资金融资</h3>
+              <ul>
+                <li>企业以自有 RU/NR 标准仓单或保税标准仓单作为质押物</li>
+                <li>银行按质押率（常见 70%–80% 区间，视银行政策）发放短期流动资金</li>
+                <li>到期还款后赎回仓单；违约时银行可处置仓单</li>
+                <li>可通过上期综合业务平台线上办理，流转效率高</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>期货保证金质押</h3>
+              <ul>
+                <li>标准仓单可作为保证金质押，释放货币资金</li>
+                <li>质押后获得的资金进入期货账户用于开仓保证金</li>
+                <li>期货亏损、交割货款、手续费仍需货币资金结清</li>
+                <li>适合持有多头仓单、同时需要期货套保头寸的企业</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid-3 mt-sm reveal">
+            <div class="metric dense"><div class="value">52 亿+</div><div class="label">截至 2024 年末，上期综合业务平台线上质押融资规模</div></div>
+            <div class="metric dense"><div class="value">80%</div><div class="label">部分平台业务质押率水平（以银行审批为准）</div></div>
+            <div class="metric dense"><div class="value">全覆盖</div><div class="label">仓库、厂库、延伸、保税标准仓单均可线上质押</div></div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>贸易商为何常用仓单质押</h3>
+              <ul>
+                <li>交易所确权，货权争议少；线上流转，放款速度快</li>
+                <li>RU/NR 价格透明，银行估值和盯市方便</li>
+                <li>可与套保、交割、注销出库无缝衔接</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>实务中会关注</h3>
+              <ul>
+                <li>仓单有效期、注销成本要在融资期限内统筹</li>
+                <li>已质押仓单不能再重复质押或擅自转让</li>
+                <li>价格大幅下跌时同样面临追加保证金压力</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="方式比较" data-section="库存融资">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">库存融资</span>
+            <span class="page-no">21</span>
+          </div>
+          <h2 class="reveal">三种融资方式的大致对照</h2>
+          <div class="matrix cols-5 mt-md reveal">
+            <div class="head">模式</div><div class="head">适合货物</div><div class="head">资金用途</div><div class="head">优点</div><div class="head">主要风险</div>
+            <div class="rowhead">货物质押</div><div>普通现货、港口货、在途货、未注册仓单库存</div><div>短期流动资金、采购周转</div><div>灵活覆盖面广，不要求已注册仓单</div><div>监管仓资质、货权瑕疵、重复质押、跌价补仓</div>
+            <div class="rowhead">买卖式融资</div><div>可控货权现货，有真实贸易背景</div><div>贸易周转、到港付汇、原料采购</div><div>现金回笼直观，手续相对简单</div><div>买卖真实性审查、回购违约、跌价处置、合规认定</div>
+            <div class="rowhead">仓单质押</div><div>RU/NR 标准仓单、保税标准仓单</div><div>流动资金或期货保证金</div><div>确权强、估值透明、线上流转快</div><div>质押率上限、仓单有效期、追加保证金</div>
+          </div>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>大致对应关系</h3>
+              <ul>
+                <li>已有标准仓单 → 仓单质押较常见</li>
+                <li>非标库存、尚未注册 → 货物质押</li>
+                <li>有贸易合同支撑、需快速变现 → 买卖式融资</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>与套保的关系</h3>
+              <ul>
+                <li>融资持货期间，企业也可能配合 RU/NR 卖出管理价格风险</li>
+                <li>仓单质押 + 期货空头，是行业里较常提到的组合</li>
+                <li>质押率、保证金与期货头寸之间往往存在联动</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">对橡胶贸易商来说，标准仓单质押通常是最规范的路径；非标库存则更多回到银行与监管仓的货押安排。</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="progress"><span id="progress"></span></div>
+  <div class="help">方向键 / 滚轮 翻页 · <button id="fullscreenBtn" type="button">F 全屏</button> · <button id="navHelpBtn" type="button">G 目录</button> · P 打印</div>
+
+  <nav class="nav-dock" id="navDock" aria-label="幻灯片导航">
+    <div class="nav-panel" id="navPanel">
+      <div class="nav-panel-inner">
+        <div class="nav-panel-head">
+          <div>
+            <b>目录</b>
+            <span id="navCounter"></span>
+          </div>
+        </div>
+        <div class="nav-groups" id="navGroups"></div>
+      </div>
+    </div>
+    <button class="nav-trigger" id="navTrigger" type="button" aria-expanded="false" aria-controls="navPanel">目录</button>
+  </nav>
+
+  <script>
+    class SlideDeck {
+      constructor() {
+        this.stage = document.getElementById("stage");
+        this.viewport = document.getElementById("deckViewport");
+        this.slides = Array.from(document.querySelectorAll(".slide"));
+        this.progress = document.getElementById("progress");
+        this.navDock = document.getElementById("navDock");
+        this.navGroups = document.getElementById("navGroups");
+        this.navCounter = document.getElementById("navCounter");
+        this.navTrigger = document.getElementById("navTrigger");
+        this.current = 0;
+        this.wheelLocked = false;
+        this.navOpen = false;
+        this.setupHeroImages();
+        this.syncPageNumbers();
+        this.buildNavigator();
+        this.setupScale();
+        this.setupNav();
+        this.fromHash();
+        this.show(this.current);
+      }
+
+      setupHeroImages() {
+        document.querySelectorAll(".slide-bg img").forEach((img) => {
+          const wrap = img.parentElement;
+          const markLoaded = () => wrap.classList.add("is-loaded");
+          if (img.complete && img.naturalWidth > 0) markLoaded();
+          else {
+            img.addEventListener("load", markLoaded, { once: true });
+            img.addEventListener("error", () => wrap.classList.remove("is-loaded"), { once: true });
+          }
+        });
+      }
+
+      syncPageNumbers() {
+        this.slides.forEach((slide, index) => {
+          const pageNo = slide.querySelector(".slide-header .page-no");
+          if (pageNo) {
+            pageNo.textContent = String(index + 1).padStart(2, "0");
+          }
+        });
+      }
+
+      buildNavigator() {
+        const groups = new Map();
+        this.slides.forEach((slide, index) => {
+          const section = slide.dataset.section || "其他";
+          if (!groups.has(section)) groups.set(section, []);
+          groups.get(section).push({ slide, index, title: slide.dataset.title || `第 ${index + 1} 页` });
+        });
+
+        this.navGroups.innerHTML = "";
+        groups.forEach((items, section) => {
+          const group = document.createElement("div");
+          group.className = "nav-group";
+          group.innerHTML = `<div class="nav-group-title">${section}</div>`;
+          const list = document.createElement("div");
+          list.className = "nav-items";
+          items.forEach(({ slide, index, title }) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "nav-item";
+            btn.dataset.index = String(index);
+            btn.innerHTML = `<span class="idx">${String(index + 1).padStart(2, "0")}</span><span>${title}</span>`;
+            btn.addEventListener("click", () => this.show(index));
+            list.appendChild(btn);
+          });
+          group.appendChild(list);
+          this.navGroups.appendChild(group);
+        });
+      }
+
+      updateNavigator() {
+        this.navCounter.textContent = `${this.current + 1} / ${this.slides.length}`;
+        this.navGroups.querySelectorAll(".nav-item").forEach((btn) => {
+          const active = Number(btn.dataset.index) === this.current;
+          btn.classList.toggle("is-current", active);
+          if (active) btn.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        });
+      }
+
+      toggleNav() {
+        this.setNavOpen(!this.navOpen);
+      }
+
+      setNavOpen(open) {
+        this.navOpen = open;
+        this.navDock.classList.toggle("is-open", open);
+        this.viewport?.classList.toggle("nav-shift", open);
+        this.navTrigger.setAttribute("aria-expanded", String(open));
+        this.navTrigger.textContent = open ? "收起" : "目录";
+        this.fitStage?.();
+        if (open) window.setTimeout(() => this.fitStage?.(), 340);
+      }
+
+      getNavWidth() {
+        if (!this.navOpen) return 0;
+        return this.navDock?.getBoundingClientRect().width || 300;
+      }
+
+      setupNavigatorUI() {
+        this.navTrigger.addEventListener("click", () => this.toggleNav());
+        document.getElementById("navHelpBtn")?.addEventListener("click", () => this.toggleNav());
+      }
+
+      setupScale() {
+        this.fitStage = () => {
+          const navW = this.getNavWidth();
+          const availW = Math.max(320, window.innerWidth - navW);
+          const scale = Math.min(availW / 1920, window.innerHeight / 1080);
+          const x = navW + (availW - 1920 * scale) / 2;
+          const y = (window.innerHeight - 1080 * scale) / 2;
+          this.stage.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+        };
+        window.addEventListener("resize", this.fitStage);
+        this.fitStage();
+      }
+
+      show(index) {
+        this.current = Math.max(0, Math.min(this.slides.length - 1, index));
+        this.slides.forEach((slide, i) => {
+          const on = i === this.current;
+          slide.classList.toggle("active", on);
+          slide.classList.toggle("visible", on);
+        });
+        this.progress.style.width = `${((this.current + 1) / this.slides.length) * 100}%`;
+        const title = this.slides[this.current].dataset.title || "";
+        history.replaceState(null, "", `#${this.current + 1}`);
+        document.title = `${String(this.current + 1).padStart(2, "0")} ${title} - 天然橡胶期货现货专题`;
+        this.updateNavigator();
+      }
+
+      fromHash() {
+        const n = Number(location.hash.replace("#", ""));
+        if (Number.isFinite(n) && n >= 1 && n <= this.slides.length) {
+          this.current = n - 1;
+        }
+      }
+
+      setupNav() {
+        this.setupNavigatorUI();
+
+        window.addEventListener("hashchange", () => {
+          this.fromHash();
+          this.show(this.current);
+        });
+
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && this.navOpen) {
+            this.setNavOpen(false);
+            return;
+          }
+          if (e.key.toLowerCase() === "g" && !e.target.isContentEditable) {
+            e.preventDefault();
+            this.toggleNav();
+            return;
+          }
+          if (this.navDock.classList.contains("is-open") && e.key >= "1" && e.key <= "9" && e.altKey) {
+            e.preventDefault();
+            const target = Number(e.key) - 1;
+            if (target < this.slides.length) this.show(target);
+            return;
+          }
+          if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) {
+            e.preventDefault();
+            this.show(this.current + 1);
+          }
+          if (["ArrowLeft", "ArrowUp", "PageUp", "Backspace"].includes(e.key)) {
+            e.preventDefault();
+            this.show(this.current - 1);
+          }
+          if (e.key === "Home") this.show(0);
+          if (e.key === "End") this.show(this.slides.length - 1);
+          if (e.key.toLowerCase() === "f") document.documentElement.requestFullscreen?.();
+          if (e.key.toLowerCase() === "p") window.print();
+        });
+
+        window.addEventListener("wheel", (e) => {
+          if (this.navOpen) return;
+          e.preventDefault();
+          if (this.wheelLocked || Math.abs(e.deltaY) < 12) return;
+          this.wheelLocked = true;
+          this.show(this.current + (e.deltaY > 0 ? 1 : -1));
+          setTimeout(() => { this.wheelLocked = false; }, 360);
+        }, { passive: false });
+
+        document.getElementById("fullscreenBtn")?.addEventListener("click", async () => {
+          if (document.fullscreenElement) await document.exitFullscreen?.();
+          else await document.documentElement.requestFullscreen?.();
+        });
+      }
+    }
+
+    new SlideDeck();
+  </script>
+</body>
+</html>
