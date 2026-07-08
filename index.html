@@ -484,6 +484,151 @@
       margin: 8px 0;
     }
 
+    .formula.compact {
+      font-size: 32px;
+      padding: 22px 28px;
+      margin: 0;
+    }
+
+    .basis-trade.compact {
+      padding: 20px 24px 18px;
+    }
+
+    .basis-trade.compact .leg-asset {
+      font-size: 30px;
+    }
+
+    .basis-trade.compact .leg-desc {
+      font-size: 18px;
+    }
+
+    .basis-trade {
+      background: linear-gradient(135deg, rgba(15, 42, 34, 0.96) 0%, rgba(22, 53, 43, 0.92) 100%);
+      border: 1px solid rgba(184, 120, 50, 0.35);
+      border-radius: 6px;
+      padding: 28px 32px 24px;
+      color: var(--cream);
+      box-shadow: 0 12px 40px rgba(15, 42, 34, 0.18);
+    }
+
+    .basis-trade-label {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      margin-bottom: 20px;
+    }
+
+    .basis-trade-legs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .basis-trade-legs .leg {
+      background: rgba(246, 242, 234, 0.06);
+      border: 1px solid rgba(246, 242, 234, 0.14);
+      border-radius: 4px;
+      padding: 22px 24px;
+      text-align: center;
+    }
+
+    .basis-trade-legs .leg-spot {
+      border-color: rgba(90, 154, 126, 0.55);
+      box-shadow: inset 0 0 0 1px rgba(90, 154, 126, 0.15);
+    }
+
+    .basis-trade-legs .leg-futures {
+      border-color: rgba(184, 120, 50, 0.55);
+      box-shadow: inset 0 0 0 1px rgba(184, 120, 50, 0.15);
+    }
+
+    .basis-trade-legs .leg-side {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .leg-spot .leg-side {
+      background: rgba(90, 154, 126, 0.22);
+      color: #9fd4b8;
+    }
+
+    .leg-futures .leg-side {
+      background: rgba(184, 120, 50, 0.22);
+      color: var(--copper-light);
+    }
+
+    .basis-trade-legs .leg-asset {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .basis-trade-legs .leg-desc {
+      display: block;
+      font-size: 20px;
+      line-height: 1.4;
+      color: rgba(246, 242, 234, 0.72);
+    }
+
+    .basis-trade-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 88px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--copper-light);
+    }
+
+    .basis-trade-link span {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(246, 242, 234, 0.55);
+    }
+
+    .basis-trade-foot {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(246, 242, 234, 0.12);
+      font-size: 21px;
+      line-height: 1.48;
+      color: rgba(246, 242, 234, 0.82);
+    }
+
+    .basis-trade-foot strong {
+      color: var(--copper-light);
+      font-weight: 700;
+    }
+
+    .roll-trade .leg-near {
+      border-color: rgba(120, 160, 200, 0.55);
+      box-shadow: inset 0 0 0 1px rgba(120, 160, 200, 0.15);
+    }
+
+    .roll-trade .leg-near .leg-side {
+      background: rgba(120, 160, 200, 0.22);
+      color: #b8d4f0;
+    }
+
+    .roll-trade .leg-far {
+      border-color: rgba(184, 120, 50, 0.55);
+      box-shadow: inset 0 0 0 1px rgba(184, 120, 50, 0.15);
+    }
+
     .quote {
       font-family: var(--font-display);
       font-size: 36px;
@@ -529,19 +674,19 @@
       margin-bottom: 12px;
     }
 
-    .slide[data-title="海外市场"] h2 {
+    .slide[data-title="其他相关产品和合约"] h2 {
       font-size: 50px;
       line-height: 1.14;
     }
 
-    .slide[data-title="海外市场"] .matrix.compact > div {
+    .slide[data-title="其他相关产品和合约"] .matrix.compact > div {
       padding: 8px 14px;
       font-size: 18px;
       line-height: 1.35;
       min-height: 46px;
     }
 
-    .slide[data-title="海外市场"] .panel.dense li {
+    .slide[data-title="其他相关产品和合约"] .panel.dense li {
       font-size: 20px;
       line-height: 1.38;
     }
@@ -1235,16 +1380,18 @@
           <div class="toc-grid reveal">
             <div class="toc-block">
               <span class="toc-block-no">01</span>
-              <h3>期货合约</h3>
-              <p class="toc-block-desc">产业背景、品种分工与合约规则</p>
+              <h3>期货合约的演进</h3>
+              <p class="toc-block-desc">RU 为何先行、为何不够、NR/BR 如何依次补上</p>
               <ul class="toc-block-list">
                 <li>产业格局</li>
-                <li>品种结构</li>
-                <li>天然橡胶 RU</li>
-                <li>20 号胶 NR</li>
-                <li>丁二烯橡胶 BR</li>
-                <li>成交规模</li>
-                <li>海外市场</li>
+                <li>现货胶种</li>
+                <li>RU 为何先行</li>
+                <li>轮胎主导消费</li>
+                <li>贸易与错配加剧</li>
+                <li>RU 的修补与局限</li>
+                <li>NR 对准 TSR20</li>
+                <li>BR 补齐配方敞口</li>
+                <li>其他相关产品和合约</li>
               </ul>
             </div>
             <div class="toc-block">
@@ -1256,7 +1403,6 @@
                 <li>跨期价差</li>
                 <li>跨市场价差</li>
                 <li>期现基差</li>
-                <li>贸易口径</li>
               </ul>
             </div>
             <div class="toc-block">
@@ -1268,31 +1414,30 @@
                 <li>货物质押</li>
                 <li>买卖式融资</li>
                 <li>标准仓单质押</li>
-                <li>方式比较</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===== 第一部分：期货合约 ===== -->
-      <section class="slide slide--chapter" data-title="期货合约" data-section="期货合约">
+      <!-- ===== 第一部分：期货合约的演进 ===== -->
+      <section class="slide slide--chapter" data-title="期货合约的演进" data-section="期货合约的演进">
         <div class="slide-bg" data-image="assets/chapter-01.png">
           <img src="assets/chapter-01.png" alt="" />
         </div>
         <div class="slide-inner">
           <div class="chapter-copy">
             <div class="chapter-no reveal">01</div>
-            <h2 class="reveal">期货合约</h2>
-            <p class="reveal">产业格局、RU / NR / BR 品种分工，以及成交规模与海外参照。</p>
+            <h2 class="reveal">期货合约的演进</h2>
+            <p class="reveal">一条主线：RU 回应了当时的国内农垦与完税现货，却随轮胎崛起、进口加深而与主消费链错位——NR 补上 TSR20，BR 再补上配方中的合成胶敞口。</p>
           </div>
         </div>
       </section>
 
-      <section class="slide" data-title="产业格局" data-section="期货合约">
+      <section class="slide" data-title="产业格局" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">03</span>
           </div>
           <h2 class="reveal">天然橡胶：战略物资、消费大国、进口依赖高</h2>
@@ -1329,283 +1474,314 @@
               </ul>
             </div>
           </div>
-          <p class="mt-md reveal" style="font-size:23px;line-height:1.48;color:var(--muted);">2006 年起，上期所天然橡胶期货成交规模持续位居全球同类品种首位；2019 年 20 号胶 NR 在上期能源上市后，境内完税与跨境保税两条贸易链逐步形成对应的场内定价工具。</p>
+          <p class="mt-md reveal" style="font-size:23px;line-height:1.48;color:var(--muted);">中国是全球最大消费国，约 70% 天然胶用于轮胎，约 80% 依赖进口——这一产业底色，决定了期货合约必须跟着「实际在买什么胶、从哪条贸易链进来」不断调整。</p>
         </div>
       </section>
 
-      <section class="slide" data-title="品种结构" data-section="期货合约">
+      <section class="slide" data-title="现货胶种" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">04</span>
           </div>
-          <h2 class="reveal">国内三个期货合约</h2>
-          <div class="matrix cols-4 compact mt-sm reveal">
-            <div class="head">合约</div><div class="head">对应橡胶</div><div class="head">主要用途</div><div class="head">主要风险</div>
-            <div class="rowhead">RU</div><div>天然橡胶：国产 SCR WF、进口 RSS3</div><div>轮胎、胶管、胶带、制品；国内完税现货与仓单定价</div><div>国产/进口资源、仓单、季节性、国内需求</div>
-            <div class="rowhead">NR</div><div>20 号胶 / TSR20 / STR20：技术分级块状天然胶</div><div>轮胎工业主流原料；保税进口、跨境长约贸易</div><div>跨境贸易、汇率、保税交割、境外客户参与</div>
-            <div class="rowhead">BR</div><div>丁二烯橡胶 / 顺丁橡胶（BR9000）：合成橡胶</div><div>轮胎胎面、耐寒耐磨制品；与天然胶配方替代/互补</div><div>丁二烯、石脑油、装置开工、合成胶库存</div>
+          <h2 class="reveal">先分清现货：烟片、标准胶、全乳胶</h2>
+          <p class="reveal mt-sm" style="font-size:22px;line-height:1.48;color:var(--ink-soft);">期货合约选什么作交割标的，取决于当时谁能交货、下游在用什么——理解三种现货胶的分工，是读懂 RU 为何先行、后来又为何不够用的前提。</p>
+          <div class="grid-3 mt-sm reveal">
+            <div class="panel dense">
+              <h3 class="accent">烟胶片 RSS</h3>
+              <ul>
+                <li>胶乳凝固后压片、烟熏烘干，历史最久</li>
+                <li>RSS 3 号按外观分级；TOCOM / SGX 长期以此为参照</li>
+                <li>东南亚出口品种之一，后纳入 RU 交割范围</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3 class="green">标准胶 TSR</h3>
+              <ul>
+                <li>1960 年代起按理化指标分级：TSR 5 / 10 / 20 等</li>
+                <li>原料可含杯胶、凝胶块；来源广、成本低</li>
+                <li>轮胎工业主流原料；泰国 STR20、印尼 SIR20 等</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3 class="blue">全乳胶 SCR WF</h3>
+              <ul>
+                <li>中国特色：仅用新鲜田间胶乳加工</li>
+                <li>海南、云南农垦主力产品；国标 GB/T 8081 高度标准化</li>
+                <li>品质好，但产量与消费占比此后持续下降</li>
+              </ul>
+            </div>
           </div>
-          <div class="subsection-label compact reveal">为什么要分品种</div>
-          <div class="grid-4 compact reveal">
-            <div class="panel dense">
-              <h3>物理形态不同</h3>
-              <p>烟片（RSS3）、标准胶（SCR WF）、20 号胶（STR20）、合成胶（BR9000）的包装、质量指标和轮胎配方用量不同，不能简单互换。</p>
-            </div>
-            <div class="panel dense">
-              <h3>贸易状态不同</h3>
-              <p>RU 以国内完税交割为主，报价含税；NR 强调不含税报价、保税交割和境外客户参与，对应进口贸易链。</p>
-            </div>
-            <div class="panel dense">
-              <h3>下游需求不同</h3>
-              <p>轮胎企业对 20 号胶（NR）更敏感；制品企业、贸易商和仓单持有人对 RU 更直接；BR 服务合成胶采购。</p>
-            </div>
-            <div class="panel dense">
-              <h3>成本驱动不同</h3>
-              <p>天然胶看割胶、天气、进口、库存；BR 还与丁二烯、石脑油和石化装置开工相关——分品种更贴近各自的贸易与定价逻辑。</p>
-            </div>
-          </div>
-          <div class="subsection-label compact reveal">国内品种扩展时间线</div>
-          <div class="timeline compact reveal">
-            <div class="event"><div class="year">1993年03月</div><div class="event-date">1993-03-27</div><p>天然橡胶 RU 在上期所上市</p></div>
-            <div class="event"><div class="year">2019年01月</div><div class="event-date">2019-01-28</div><p>天然橡胶期权在上期所上市</p></div>
-            <div class="event"><div class="year">2019年08月</div><div class="event-date">2019-08-12</div><p>20 号胶 NR 在上期能源上市</p></div>
-            <div class="event"><div class="year">2022年12月</div><div class="event-date">2022-12-15</div><p>20 号胶保税标准仓单交易上线</p></div>
-            <div class="event"><div class="year">2023年07月</div><div class="event-date">2023-07-28</div><p>丁二烯橡胶 BR 期货及期权上市</p></div>
-            <div class="event"><div class="year">2025年05月</div><div class="event-date">2025-05-26</div><p>大阪所以 RU 交割结算价为基准的现金结算合约上市</p></div>
-          </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">1993 年上 RU 时，国内能稳定交割、且标准化程度最高的，是全乳胶——而不是当时轮胎厂尚未大规模使用的 TSR20。</p>
         </div>
       </section>
 
-      <section class="slide" data-title="天然橡胶 RU" data-section="期货合约">
+      <section class="slide" data-title="RU 为何先行" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">05</span>
           </div>
-          <h2 class="reveal">RU：国内天然橡胶价格锚</h2>
-          <div class="contract-meta reveal">
-            <span class="tag"><strong>1993-03-27</strong> 上市</span>
-            <span class="tag">上海期货交易所 SHFE</span>
-            <span class="tag">合约修订版 2024-11-13</span>
-          </div>
-          <div class="grid-2 mt-sm reveal">
+          <h2 class="reveal">RU 为何是第一个：1993 年回应当时的产业条件</h2>
+          <p class="reveal mt-sm" style="font-size:23px;line-height:1.5;color:var(--ink-soft);">RU 选择国产全乳胶作核心交割标的，是那个年代对国内农垦、消费结构和可交割资源的合理回应——在当时必要且有效，但并非为后来的轮胎进口时代而设计。</p>
+          <div class="grid-3 mt-md reveal">
             <div class="panel dense">
-              <h3>合约概况</h3>
+              <h3>保障国内生产者</h3>
               <ul>
-                <li>10 吨/手；报价元/吨（含税）；最小变动 5 元/吨；涨跌停 ±3%</li>
-                <li>合约月份 1、3、4、5、6、7、8、9、10、11 月</li>
-                <li>最低交易保证金 5%（随持仓量、临近交割月上调）</li>
-                <li>最后交易日：合约月份 15 日；交割：最后交易日后连续 2 个工作日</li>
-                <li>配套天然橡胶期权（2019-01-28 上市）</li>
+                <li>套保前提：生产者产品须能注册交割仓单</li>
+                <li>若选进口 TSR20，海南、云南农垦将被排斥在交割体系外</li>
+                <li>全乳胶是两大农垦体系的主力产品</li>
               </ul>
             </div>
             <div class="panel dense">
-              <h3>交割品级</h3>
+              <h3>品质高度标准化</h3>
               <ul>
-                <li>国产 SCR WF：国标 GB/T8081-2018，<strong>注册品牌</strong>交割</li>
-                <li>进口 RSS3：《绿皮书》（1979 版），泰/马/印尼/斯里兰卡等，<strong>产地认证</strong>交割</li>
-                <li>截至 2024 年底：8 个国内注册品牌 + 进口 RSS3</li>
-                <li>交割仓库布局：上海、山东、云南、海南等传统消费与集散地</li>
+                <li>国标 GB/T 8081 从原料到指标均有清晰规范</li>
+                <li>标准化是期货交割的生命线</li>
+                <li>为 RU 早期交割体系提供可靠品质基础</li>
               </ul>
             </div>
             <div class="panel dense">
-              <h3>市场地位（2024）</h3>
+              <h3>匹配当时产业现实</h3>
               <ul>
-                <li>全年成交 10,768.33 万手（+24.10%），成交额 17.36 万亿元（+53.35%）</li>
-                <li>日均持仓 25.48 万手；规模持续居全球同类品种首位</li>
-                <li>2025-05-26 大阪所挂牌引用 RU 交割结算价的现金结算合约</li>
-                <li>2025-06-18 纳入合格境外投资者可交易品种</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>典型参与者</h3>
-              <ul>
-                <li>上游：海南/云南/广东胶厂、进口烟片贸易商</li>
-                <li>中游：橡胶贸易、仓储、仓单注册与注销、期转现</li>
-                <li>下游：轮胎、制品企业；「保险+期货」收入险参考 RU 主力合约价格</li>
+                <li>1999 年全国汽车产量仅 183 万辆，轮胎尚未成消费绝对主力</li>
+                <li>全乳胶在产消结构中仍占重要份额</li>
+                <li>1999–2005 年前后，合约与产业大致吻合的「黄金年代」</li>
               </ul>
             </div>
           </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">RU 锚定全乳胶 + 后纳入 RSS3，在 1990 年代末至 2000 年代初与产业大致吻合——但随后消费重心转向轮胎与进口 TSR20，错配开始累积。</p>
         </div>
       </section>
 
-      <section class="slide" data-title="20 号胶 NR" data-section="期货合约">
+      <section class="slide" data-title="轮胎主导消费" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">06</span>
           </div>
-          <h2 class="reveal">NR：面向跨境贸易的 20 号胶合约</h2>
-          <div class="contract-meta reveal">
-            <span class="tag"><strong>2019-08-12</strong> 上市</span>
-            <span class="tag">上海国际能源交易中心 INE</span>
-            <span class="tag">境内特定品种 · 国际化平台</span>
+          <h2 class="reveal">RU 上市后，产业变了：轮胎崛起，主消费胶种转向 TSR20</h2>
+          <div class="grid-3 mt-sm reveal">
+            <div class="metric dense"><div class="value">~70%</div><div class="label">天然橡胶消费用于轮胎制造</div></div>
+            <div class="metric dense"><div class="value">~85%</div><div class="label">2010 年代消费依赖进口（国产约 80 万吨 / 消费 500 万吨+）</div></div>
+            <div class="metric dense"><div class="value">TSR20</div><div class="label">轮胎厂炼胶车间实际大量使用的主流胶种</div></div>
           </div>
           <div class="grid-2 mt-sm reveal">
             <div class="panel dense">
-              <h3>合约概况</h3>
+              <h3>轮胎工业改变消费版图</h3>
               <ul>
-                <li>10 吨/手；报价元/吨（<strong>不含税</strong>）；最小变动 5 元/吨；涨跌停 ±5%</li>
-                <li>合约月份 1–12 月；最低交易保证金 7%（随持仓量、交割月上调）</li>
-                <li>最后交易日：交割月 15 日；交割：最后交易日后连续 5 个交易日</li>
-                <li>模式：「国际平台、净价交易、保税交割、人民币计价」</li>
+                <li>2001 入世后汽车产量爆发：2009 年 1,360 万辆跃居全球第一</li>
+                <li>山东三角、玲珑、赛轮等轮胎企业年耗胶数十万吨</li>
+                <li>TSR20 比全乳胶通常低 500–1,500 元/吨，配方可调整弥补性能差</li>
+                <li>全乳胶被挤向手套、乳胶制品等高端细分市场</li>
               </ul>
             </div>
             <div class="panel dense">
-              <h3>交割品级</h3>
+              <h3>进口结构与合约标的错位</h3>
               <ul>
-                <li>STR20 / SCR20 / SMR20 / SIR20 等 20 号胶，符合 INE 质量标准</li>
-                <li>同一生产企业、同一品牌、同一包装规格；每块 35kg，每托 1.26 吨</li>
-                <li>截至 2024 年底：注册商品 <strong>27 家企业、43 家工厂</strong>（中 4 / 泰 16 / 马 2 / 印尼 5）</li>
-                <li>实物交割 + 保税交割 + 仓库交割；2022-12-15 保税标准仓单交易上线</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>市场地位（2024）</h3>
-              <ul>
-                <li>全年成交 2,810.79 万手（+44.47%），成交额 3.70 万亿元（+86.68%）</li>
-                <li>日均持仓 10.23 万手；年交割 17.72 万吨（+6.23%）</li>
-                <li>境外客户数 +14%，境外日均持仓占比 +16%</li>
-                <li>2023 年以 NR 定价的跨境实货贸易量近 <strong>200 万吨</strong>，逐步成为跨境定价「锚」</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>典型参与者</h3>
-              <ul>
-                <li>境外：四种参与模式（直接代理 / 转委托 / 特殊经纪 / 特殊非经纪）</li>
-                <li>境内：轮胎厂、贸易商、仓储；泰华树胶、联润橡胶、赛轮等签定价基准备忘录</li>
-                <li>交割布局：上海、山东、海南为主，并拓展至天津等新消费区域</li>
+                <li>泰/马/印尼占中国进口 80%+，出口以 TSR20、RSS3 为主，几乎无全乳胶</li>
+                <li>消费 85% 靠进口，进口主力是 TSR20，但 RU 交割的是国产全乳胶</li>
+                <li>期货交割胶与工厂做轮胎的胶，越来越不是同一种东西</li>
+                <li>轮胎厂实际采购 TSR20 / 混合胶，RU 却交割全乳胶——市场开始呼唤新工具</li>
               </ul>
             </div>
           </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">RU 的交割标的没有变，但工厂做轮胎用的胶变了——这是后续一切「不够用」的起点：不是 RU 设计错了，而是产业跑在了 RU 前面。</p>
         </div>
       </section>
 
-      <section class="slide" data-title="丁二烯橡胶 BR" data-section="期货合约">
+      <section class="slide" data-title="贸易与错配加剧" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">07</span>
           </div>
-          <h2 class="reveal">BR：合成橡胶价格风险进入场内</h2>
-          <div class="contract-meta reveal">
-            <span class="tag"><strong>2023-07-28</strong> 期货及期权上市</span>
-            <span class="tag">上海期货交易所 SHFE</span>
-            <span class="tag">合约文本 2023-07-26</span>
+          <h2 class="reveal">贸易结构再放大错配：关税、混合胶与「两张皮」</h2>
+          <p class="reveal mt-sm" style="font-size:22px;line-height:1.48;color:var(--ink-soft);">消费已转向 TSR20，高关税又推动复合胶、混合胶等「绕道」进口——轮胎厂实际采购的主力，与 RU 可交割的全乳胶越来越远。</p>
+          <div class="grid-2 mt-sm reveal">
+            <div class="panel dense">
+              <h3>高关税背景</h3>
+              <ul>
+                <li>天然橡胶进口关税 20% 从价或 1,500 元/吨从低，旨在保护国内胶农</li>
+                <li>轮胎企业年采购 10 万吨即多付 1.5–2 亿元关税成本</li>
+                <li>降低关税诉求长期存在，但涉及数百万小农户生计，推进困难</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>产业寻找「侧门」</h3>
+              <ul>
+                <li><strong>复合胶（2009–2015）</strong>：东盟简单混合后以税则 4005 零关税进口，2013 年超 200 万吨</li>
+                <li>2014 年国标规定生胶含量 ≤88%，2015 年 7 月实施后进口断崖下跌</li>
+                <li><strong>混合胶（2015 至今）</strong>：天然胶 + ≥0.5% 合成胶，税则 40028000 零关税</li>
+                <li>2016 年混合胶进口飙至 180 万吨+，完美替补复合胶退场后的空白</li>
+              </ul>
+            </div>
           </div>
           <div class="grid-2 mt-sm reveal">
             <div class="panel dense">
-              <h3>合约概况</h3>
+              <h3>对期货合约的影响</h3>
               <ul>
-                <li>5 吨/手；报价元/吨；最小变动 5 元/吨；涨跌停 ±5%</li>
-                <li>合约月份 1–12 月；最低交易保证金 7%（随上市阶段、持仓量上调）</li>
-                <li>最后交易日：交割月 15 日；交割：最后交易日后连续 2 个工作日</li>
-                <li>2023 年 7 月期货、期权同步挂牌，补齐天然胶 + 合成胶工具链</li>
+                <li>混合胶与 TSR20 是轮胎企业实际采购主力，均无法在 RU 上交割</li>
+                <li>大量零关税混合胶涌入，进一步加剧交割品与消费品的错位</li>
+                <li>海关归类争议（98% 天然胶 + 2% 合成胶算哪类？）长期存在</li>
               </ul>
             </div>
             <div class="panel dense">
-              <h3>交割品级</h3>
+              <h3>「两张皮」困境</h3>
               <ul>
-                <li>丁二烯橡胶，符合或优于 GB/T 8659-2018《BR9000》<strong>I 类</strong>指标</li>
-                <li>标准仓单 10 吨/张，须为交易所<strong>认证商品</strong>；同一企业、品牌、牌号、包装</li>
-                <li>生产日期不超过连续 30 日；包装 25kg/袋（牛皮纸 + PE 内衬）</li>
-                <li>交割方式：<strong>指定仓库 + 厂库</strong>并行（厂库延续直供模式、降低物流检验成本）</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>市场地位（2024）</h3>
-              <ul>
-                <li>全年成交 2,727.92 万手，成交额 1.97 万亿元（19,746 亿元）</li>
-                <li>年交割 4.26 万吨；期权成交 1,085.42 万手，行权 3.92 万手</li>
-                <li>2024-07-05 丁二烯橡胶标准仓单交易上线综合业务平台</li>
-                <li>期现价格联动紧密，功能发挥逐步显现</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>典型参与者</h3>
-              <ul>
-                <li>顺丁橡胶标准化高、牌号单一（BR9000）、我国为最大生产消费国</li>
-                <li>价格驱动：丁二烯/石脑油、装置开工、合成胶库存；与 RU/NR 配方替代</li>
-                <li>合成橡胶厂、贸易商；轮胎厂锁定合成胶采购、管理天然胶—合成胶价差</li>
+                <li>期货反映全乳胶供需，现货成本由 TSR20 / 混合胶决定</li>
+                <li>RU 长期升水但难以通过交割回归；轮胎厂套保像「穿别人的鞋跑步」</li>
+                <li>老胶仓单集中注销形成周期性「制度性抛压」</li>
               </ul>
             </div>
           </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">错配不再只是「胶种不同」，而是贸易、关税与交割体系叠在一起——接下来看 RU 在既有框架内如何修补，以及为何修补仍不够。</p>
         </div>
       </section>
 
-      <section class="slide" data-title="成交规模" data-section="期货合约">
+      <section class="slide" data-title="RU 的修补与局限" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">08</span>
           </div>
-          <h2 class="reveal">从成交规模看：RU 最成熟，NR 和 BR 也已经有市场</h2>
-          <div class="grid-3 mt-md reveal">
-            <div class="metric dense"><div class="value">10,768</div><div class="label">RU 年成交量（万手）；+24.10%；日均持仓 25.48 万手</div></div>
-            <div class="metric dense"><div class="value">2,811</div><div class="label">NR 年成交量（万手，2,810.79）；+44.47%；日均持仓 10.23 万手</div></div>
-            <div class="metric dense"><div class="value">2,728</div><div class="label">BR 年成交量（万手，2,727.92）；成交额 1.97 万亿元；年交割 4.26 万吨</div></div>
-          </div>
-          <div class="bars mt-sm reveal">
-            <div class="bar-row"><b>RU 成交额</b><div class="bar"><span style="width:100%"></span></div><span>17.36 万亿（+53.4%）</span></div>
-            <div class="bar-row"><b>NR 成交额</b><div class="bar"><span style="width:21%"></span></div><span>3.70 万亿</span></div>
-            <div class="bar-row"><b>BR 成交额</b><div class="bar"><span style="width:11%"></span></div><span>1.97 万亿（19,746 亿）</span></div>
-          </div>
-          <div class="grid-3 mt-md reveal">
+          <h2 class="reveal">RU 的修补与局限：框架内尽力适配，仍对不准 TSR20</h2>
+          <div class="grid-2 mt-sm reveal">
             <div class="panel dense">
-              <h3>RU：国内基准</h3>
-              <p>历史最久、流动性最好；2006 年起成交规模长期居全球同类品种首位，也是「上海胶」走向海外的核心品种。</p>
+              <h3>基差与套保效率</h3>
+              <ul>
+                <li>健康市场中基差反映仓储、资金与交割便利；RU 基差长期扭曲</li>
+                <li>全乳胶与混合胶价格大方向一致，但细节常背离</li>
+                <li>轮胎厂买 TSR20 / 混合胶，却在 RU 上套保——对冲效率持续下降</li>
+              </ul>
             </div>
             <div class="panel dense">
-              <h3>NR：跨境定价</h3>
-              <p>境外交易者参与，保税交割与标准仓单体系完善；越来越多进口贸易和长约合同参考 NR 定价。</p>
-            </div>
-            <div class="panel dense">
-              <h3>BR：合成胶补充</h3>
-              <p>2024 年成交 2,727.92 万手；2024-07-05 标准仓单交易上线；与 RU/NR 覆盖轮胎配方完整敞口。</p>
+              <h3>交割意愿与小众化</h3>
+              <ul>
+                <li>全乳胶消费份额下降 → 接货意愿低 → 老胶仓单积压</li>
+                <li>老胶集中注销对盘面形成与基本面无关的下行压力</li>
+                <li>2014 年前后，轮胎企业在行业会议上公开呼吁：需要交割 TSR20 的期货合约</li>
+              </ul>
             </div>
           </div>
-          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">已形成覆盖 RU 期货期权、NR 期货、BR 期货期权及保税仓单的多层次天然橡胶衍生品体系。</p>
+          <div class="subsection-label compact reveal">SHFE 在既有框架内的修补尝试</div>
+          <div class="grid-4 compact reveal">
+            <div class="panel dense"><h3>纳入 RSS3</h3><p>扩大交割来源、增强国际联动；但 RSS3 同样非轮胎主流消费品种。</p></div>
+            <div class="panel dense"><h3>品牌交割</h3><p>2011 年 7 月起 SCR WF 实行注册品牌交割，提升品质一致性。</p></div>
+            <div class="panel dense"><h3>大合约</h3><p>2011 年 9 月交易单位 5→10 吨/手，优化参与者结构与产业套保成本。</p></div>
+            <div class="panel dense"><h3>仓单管理</h3><p>有效期优化、注销窗口调整、交割库网络向山东等轮胎产区扩容。</p></div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">框架内的修补是「尽力适配」，但轮胎厂要的是能直接对冲 TSR20 的工具——2014 年前后行业公开呼吁，2019 年 NR 应势上市。</p>
         </div>
       </section>
 
-      <section class="slide" data-title="海外市场" data-section="期货合约">
+      <section class="slide" data-title="NR 对准 TSR20" data-section="期货合约的演进">
         <div class="slide-inner">
           <div class="slide-header reveal">
-            <span class="section-label">期货合约</span>
+            <span class="section-label">期货合约的演进</span>
             <span class="page-no">09</span>
           </div>
-          <h2 class="reveal">海外橡胶期货：日本 OSE 与新加坡 SGX 是跨境参照主战场</h2>
+          <h2 class="reveal">NR（2019）：对准 TSR20，补上 RU 覆盖不了的进口链</h2>
+          <p class="reveal mt-sm" style="font-size:22px;line-height:1.48;color:var(--ink-soft);">RU 无法改成 TSR20 交割——冲击农垦利益与存量仓单成本太高。产业多年呼吁后，交易所增量推出 NR，让 RU 继续服务完税全乳胶，NR 专门对接轮胎厂的主消费胶种。</p>
           <div class="grid-3 mt-sm reveal">
-            <div class="metric dense"><div class="value">1952</div><div class="label">OSE RSS3 挂牌，全球最老牌烟片期货之一</div></div>
-            <div class="metric dense"><div class="value">5 吨</div><div class="label">OSE / SGX 主流合约规模（RU、NR 为 10 吨/手）</div></div>
-            <div class="metric dense"><div class="value">2025-05</div><div class="label">OSE「上海天然橡胶」上市，直接跟踪 SHFE RU 交割结算价</div></div>
+            <div class="panel dense">
+              <h3>回应什么问题</h3>
+              <ul>
+                <li>轮胎厂实际采购 TSR20 / 混合胶，在 RU 上套保效率低</li>
+                <li>进口依赖加深，保税贸易与跨境长约需要独立定价锚</li>
+                <li>交割品须与炼胶车间用的胶「同一种东西」</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>合约怎么设计</h3>
+              <ul>
+                <li>交割标的：20 号标准胶 TSR20（泰标 STR20、印尼 SIR20 等）</li>
+                <li>保税交割 + 净价计价，对接进口贸易与口岸物流</li>
+                <li>允许境外参与者，与 SGX / OSE TSR20 形成跨境参照</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>与 RU 如何分工</h3>
+              <ul>
+                <li>RU 未被替代：仍服务国内农垦、完税现货与「上海胶」基准</li>
+                <li>NR 承接保税进口链——完税 / 保税各有一套工具</li>
+                <li>类似 WTI / Brent：同一大类、不同贸易链、各有定价功能</li>
+              </ul>
+            </div>
           </div>
+          <div class="timeline compact reveal">
+            <div class="event"><div class="year">2014</div><p>轮胎企业在行业会议上公开呼吁 TSR20 期货合约</p></div>
+            <div class="event"><div class="year">2019</div><div class="event-date">2019-08-12</div><p>NR 上市——20 号胶期货正式挂牌</p></div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">NR 解决的是天然胶里「进口 TSR20 这条链」——但轮胎配方里还有大量合成胶，这是 RU / NR 都管不到的下一层需求。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="BR 补齐配方敞口" data-section="期货合约的演进">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约的演进</span>
+            <span class="page-no">10</span>
+          </div>
+          <h2 class="reveal">BR（2023）：补齐配方中的合成胶敞口</h2>
+          <p class="reveal mt-sm" style="font-size:22px;line-height:1.48;color:var(--ink-soft);">RU 管完税天然胶、NR 管进口 TSR20——但一条轮胎配方里，天然胶与顺丁橡胶等合成胶往往并用。合成胶采购成本波动、配方替代调整，需要独立于 RU / NR 的对冲工具。</p>
+          <div class="grid-3 mt-sm reveal">
+            <div class="panel dense">
+              <h3>轮胎配方里的位置</h3>
+              <ul>
+                <li>全钢 / 半钢胎配方中，合成胶（顺丁 BR 等）占比可观</li>
+                <li>天然胶涨价时，配方可向合成胶倾斜；反之亦然</li>
+                <li>采购、库存与配方管理，天然胶与合成胶是两条独立成本线</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>BR 合约怎么补</h3>
+              <ul>
+                <li>交割标的：顺丁橡胶 BR9000，对接国内合成胶现货</li>
+                <li>2023-07-28 上市；2024 年标准仓单交易上线</li>
+                <li>与 RU / NR 并列，覆盖轮胎配方完整敞口</li>
+              </ul>
+            </div>
+            <div class="panel dense">
+              <h3>对市场的补充意义</h3>
+              <ul>
+                <li>不是替代 RU / NR，而是补上合成胶这一块的定价与套保</li>
+                <li>天然胶—合成胶价差交易、配方替代管理有了场内工具</li>
+                <li>三类合约各对应产业链上不同的风险来源</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline compact reveal">
+            <div class="event"><div class="year">1993</div><div class="event-date">1993-03-27</div><p>RU——国内完税天然胶</p></div>
+            <div class="event"><div class="year">2019</div><div class="event-date">2019-08-12</div><p>NR——进口 TSR20 / 保税链</p></div>
+            <div class="event"><div class="year">2023</div><div class="event-date">2023-07-28</div><p>BR——合成胶配方敞口</p></div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">演进逻辑始终是「缺什么工具、补什么工具」——RU 先行合理，NR 补上天然胶主消费链，BR 再补上配方里的合成胶，三者并列而非互相替代。</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="其他相关产品和合约" data-section="期货合约的演进">
+        <div class="slide-inner">
+          <div class="slide-header reveal">
+            <span class="section-label">期货合约的演进</span>
+            <span class="page-no">09</span>
+          </div>
+          <h2 class="reveal">其他相关产品和合约</h2>
+          <div class="subsection-label compact reveal">国内期权</div>
+          <div class="matrix cols-4-wide compact mt-sm reveal">
+            <div class="head">品种</div><div class="head">上市 / 交易所</div><div class="head">合约要点</div><div class="head">与期货的对应</div>
+            <div class="rowhead">RU 期权</div><div>2019-01-28；上期所</div><div>标的 RU 期货；1 手 = 10 吨；美式行权；与 RU 期货共用套保额度</div><div>服务完税天然胶的精细化风险管理</div>
+            <div class="rowhead">NR 期权</div><div>2026-04-21；上期能源</div><div>标的 NR 期货；1 手 = 10 吨；美式行权；向合格境外投资者开放</div><div>服务进口 TSR20 / 保税链的期权工具</div>
+            <div class="rowhead">BR 期权</div><div>2023-07-28；上期所</div><div>标的 BR 期货；1 手 = 5 吨；美式行权；与 BR 期货共用套保额度</div><div>服务合成胶配方敞口的期权工具</div>
+          </div>
+          <div class="subsection-label compact reveal">海外常见期货</div>
           <div class="matrix cols-4-wide compact mt-sm reveal">
             <div class="head">合约</div><div class="head">报价 / 规模</div><div class="head">交割特点</div><div class="head">与国内品种的对照</div>
             <div class="rowhead">OSE RSS3</div><div>日元；5 吨/手；1952 年上市</div><div>烟片 3 号实物交割；成交偏浅</div><div>对照 RU 进口 RSS3；浅色胶跨境价差参照</div>
             <div class="rowhead">OSE TSR20</div><div>日元；5 吨/手；2018 年上市</div><div>泰标 STR20；FOB 曼谷 / 林查班 / 槟城</div><div>与 NR、SGX TSR20 构成 20 号胶定价三角</div>
             <div class="rowhead">SGX TSR20</div><div>美元；5 吨；代码 TF</div><div>实物交割；全月份；流动性最好</div><div>进口长约与到港套保最常用外盘</div>
             <div class="rowhead">SGX RSS3</div><div>美元；5 吨；代码 RT</div><div>烟片实物交割；SICOM 现货参照</div><div>与 OSE RSS3 交叉验证烟片跨境价差</div>
-            <div class="rowhead">OSE 上海胶</div><div>日元；2025-05 挂牌；1/5/9 月</div><div>现金结算；跟踪 RU 交割结算价</div><div>海外资金以日元参与「上海胶」</div>
           </div>
-          <div class="grid-2 mt-sm reveal">
-            <div class="panel dense">
-              <h3>OSE「上海天然橡胶」的意义</h3>
-              <ul>
-                <li>SHFE 授权 RU 交割结算价，日元现金结算、无实物交割</li>
-                <li>2025 年 7 月起 RU 交割结算价算法调整，OSE 自 9 月合约同步</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>横向比较时的口径提醒</h3>
-              <ul>
-                <li>统一币种与含税/不含税；叠加港口升贴水与运费</li>
-                <li>SGX 日盘 + 夜盘，与 RU/NR 存在时段错配</li>
-              </ul>
-            </div>
-          </div>
-          <p class="mt-sm reveal" style="font-size:20px;color:var(--muted);">海外盘为进口贸易与跨境长约提供第二套参照，不替代 RU/NR 的境内定价功能。</p>
         </div>
       </section>
 
@@ -1657,27 +1833,46 @@
             <span class="section-label">交易策略</span>
             <span class="page-no">12</span>
           </div>
-          <h2 class="reveal">跨期：近远月价差在谈什么</h2>
-          <div class="grid-2 mt-md reveal">
+          <h2 class="reveal">跨期：持有成本锚定月差，偏离则正套 / 反套</h2>
+          <p class="reveal mt-sm" style="font-size:22px;line-height:1.48;color:var(--ink-soft);">月间价差的常见讨论口径，是把远月价格看作近月价格叠加上持有库存所花的成本。</p>
+          <div class="formula compact mt-sm reveal">远月 ≈ 近月 + 仓储成本 + 资金利息</div>
+          <p class="reveal mt-sm" style="font-size:21px;line-height:1.45;color:var(--muted);">实际月差围绕这条「成本线」波动。偏离较大时，正套 / 反套是市场上很常见的应对方式；贸易商移仓换月，本质上也是在和这条成本线比较。</p>
+          <div class="grid-2 mt-sm reveal">
             <div class="panel dense">
-              <h3>常见情形</h3>
+              <h3>价差偏高 → 正套</h3>
               <ul>
-                <li>正套：买近月、卖远月——近月偏紧、库存去化或交割前现货偏强</li>
-                <li>反套：卖近月、买远月——近月仓单压力大、远月预期改善</li>
-                <li>RU 常联系到 1、5、9 月主力及割胶旺季（约 5–9 月）和新胶上市</li>
-                <li>NR 还会谈到进口到港节奏和保税库存</li>
+                <li>实际：远月 − 近月 <strong>高于</strong> 仓储 + 资金利息的隐含水平</li>
+                <li>常见操作：<strong>买近月、卖远月</strong>，押注月差向成本线回归</li>
+                <li>逻辑：远月偏贵，卖远端、买近端收取「过高」的价差</li>
               </ul>
             </div>
             <div class="panel dense">
-              <h3>通常会谈到</h3>
+              <h3>价差偏低 → 反套</h3>
               <ul>
-                <li>临近交割月：限仓、保证金、交割品级和品牌升贴水</li>
-                <li>仓单：注册量、有效期、注销节奏、仓库位置和出库费用</li>
-                <li>月差背后还涉及资金利息、手续费、滑点和可能的交割成本</li>
+                <li>实际：远月 − 近月 <strong>低于</strong> 持有成本隐含水平（甚至近贵远便宜）</li>
+                <li>常见操作：<strong>卖近月、买远月</strong>，押注价差修复</li>
+                <li>逻辑：远月相对便宜，反向布局等待月差回升</li>
               </ul>
             </div>
           </div>
-          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">跨期价差更多反映近远月定价与库存、仓单、季节性之间的关系，而不只是单一方向的涨跌判断。</p>
+          <div class="basis-trade roll-trade compact mt-sm reveal">
+            <div class="basis-trade-label">移仓换月 · 与成本线的关系</div>
+            <div class="basis-trade-legs">
+              <div class="leg leg-near">
+                <span class="leg-side">平近月</span>
+                <span class="leg-asset">空头</span>
+                <span class="leg-desc">买回近月，了结近端</span>
+              </div>
+              <div class="basis-trade-link">→<span>移仓</span></div>
+              <div class="leg leg-far">
+                <span class="leg-side">开远月</span>
+                <span class="leg-asset">空头</span>
+                <span class="leg-desc">卖出远月，延续套保</span>
+              </div>
+            </div>
+            <div class="basis-trade-foot">远月升水且<strong>高于成本线</strong>时，空头移仓往往<strong>收到正价差</strong>；若月差已偏窄甚至倒挂，移仓也可能贴水。RU 的 1 / 5 / 9 切换、11 与 1 月新老胶批次，都会让实际成本线与理论值出现季节性偏离。</div>
+          </div>
+          <p class="mt-sm reveal" style="font-size:21px;color:var(--muted);">先算清「近月 + 仓储 + 利息」这条成本线，再判断该做正套、反套，还是顺势移仓——这是跨期业务里最常用的分析框架之一。</p>
         </div>
       </section>
 
@@ -1693,27 +1888,7 @@
             <div class="rowhead">RU − NR</div><div>浅色胶与 20 号胶的结构性价差；轮胎配方中天然胶不同品级</div><div>含税/不含税、品质升贴水、仓单注册规则、交割区域</div><div>胶种替代不完全、交割约束不同、RU 仓单压力与 NR 保税库存节奏不同步</div>
             <div class="rowhead">NR − SGX TSR20</div><div>进口 20 号胶长约定价、到港套保、保税转一般贸易</div><div>美元/人民币、13% 增值税口径、海运/保险、港口升贴水、保税仓费用</div><div>汇率波动、境内外交易时段错配、海外盘流动性、到港与报关时滞</div>
             <div class="rowhead">RU − OSE RSS3</div><div>烟片胶跨境参照；浅色胶进口与国内仓单定价对照</div><div>日元/人民币、RSS3 品质规格、仓库位置、交割规则差异</div><div>成交深度不足、交割地分散、烟片与 SCR WF 配方差异</div>
-            <div class="rowhead">RU − OSE 上海胶</div><div>海外投资者直接参考「上海胶」；境内外 RU 价格联动观察</div><div>日元计价、引用 RU 交割结算价、现金结算无实物交割</div><div>两地交易时段、节假日、汇率与基差传导时滞</div>
           </div>
-          <div class="grid-2 mt-sm reveal">
-            <div class="panel dense">
-              <h3>比较时要统一的口径</h3>
-              <ul>
-                <li>价格常需统一到「元/吨」或「美元/吨」后再横向参照</li>
-                <li>RU 含税、NR 不含税——跨品种比较要还原增值税差异</li>
-                <li>港口升贴水、品牌差、运费和仓储也会影响表观价差</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>容易忽略的差异</h3>
-              <ul>
-                <li>RU 和 NR 配方、交割规则不同，并不完全可互换</li>
-                <li>保税货还有海关监管——NR 相关头寸与 RU 交割路径并不相同</li>
-                <li>盘面价差之外，资金占用和换月成本也会影响实际贸易感受</li>
-              </ul>
-            </div>
-          </div>
-          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">跨市场价差讨论时，RU（含税完税）、NR（不含税保税）与海外盘（汇率、交割地升贴水）往往需要放在同一口径下理解。</p>
         </div>
       </section>
 
@@ -1723,69 +1898,44 @@
             <span class="section-label">交易策略</span>
             <span class="page-no">14</span>
           </div>
-          <h2 class="reveal">期现基差：现货与期货价格的关系</h2>
-          <div class="grid-2 mt-md reveal">
-            <div class="panel dense">
-              <h3>买现货 + 卖期货</h3>
-              <p>期货升水较高、现货可注册仓单或可锁定销售时较常见。价差变化来自基差（升水）的收敛。</p>
-              <ul>
-                <li>涉及：资金占用、仓储、检验、品牌升贴水、交割费用</li>
-                <li>常见说法：贸易商收现货后卖 RU/NR；轮胎厂采购同时卖出套保</li>
-              </ul>
+          <h2 class="reveal">期现基差：标品与非标品，逻辑不一样</h2>
+          <p class="reveal mt-sm" style="font-size:22px;line-height:1.48;color:var(--ink-soft);">基差 = 现货价格 − 期货价格。橡胶贸易里最常见的期现结构，是下面这一种。</p>
+          <div class="basis-trade mt-md reveal">
+            <div class="basis-trade-label">贸易商常见套利结构</div>
+            <div class="basis-trade-legs">
+              <div class="leg leg-spot">
+                <span class="leg-side">多头</span>
+                <span class="leg-asset">现货</span>
+                <span class="leg-desc">持库、收货、港口或在途库存</span>
+              </div>
+              <div class="basis-trade-link">+<span>搭配</span></div>
+              <div class="leg leg-futures">
+                <span class="leg-side">空头</span>
+                <span class="leg-asset">期货</span>
+                <span class="leg-desc">RU / NR 卖出套保或锁基差</span>
+              </div>
             </div>
-            <div class="panel dense">
-              <h3>卖现货 + 买期货</h3>
-              <p>持货方释放库存，或现货偏紧、期货贴水时出现。</p>
-              <ul>
-                <li>还会谈到未来能否稳定买回或接货</li>
-                <li>常见说法：去库存回笼资金，同时保留未来采购敞口</li>
-              </ul>
-            </div>
-          </div>
-          <div class="flow mt-sm reveal">
-            <div class="step"><b>1</b><p>确认现货规格、品牌、仓库和权属</p></div>
-            <div class="step"><b>2</b><p>梳理基差、资金、仓储、税费等口径</p></div>
-            <div class="step"><b>3</b><p>期货端建立对应头寸</p></div>
-            <div class="step"><b>4</b><p>仓单注册/注销或现货交收</p></div>
-            <div class="step"><b>5</b><p>平仓或交割，回看过程中的价差变化</p></div>
+            <div class="basis-trade-foot">整体相当于<strong>做多基差</strong>——盈亏对「现货 − 期货」的变化敏感。收现货、卖期货，是贸易环节里最常出现的期现组合。</div>
           </div>
           <div class="grid-2 mt-sm reveal">
             <div class="panel dense">
-              <h3>升贴水大致含义</h3>
+              <h3>标品套利（交割品）</h3>
               <ul>
-                <li>升水（期货 &gt; 现货）：正向市场较常见，常与仓单注册成本和升水变化联系在一起</li>
-                <li>贴水（期货 &lt; 现货）：现货偏紧或交割品短缺时出现</li>
-                <li>RU/NR 基差还会区分品牌升贴水、仓库位置和交割月份</li>
+                <li>现货可注册仓单或已接近 RU / NR 交割标准</li>
+                <li>期现指向同一标的，升贴水常有回归讨论空间</li>
+                <li>期货升水较高时卖期货、持现货，常围绕基差收敛展开</li>
               </ul>
             </div>
             <div class="panel dense">
-              <h3>行业里常见的说法</h3>
+              <h3>非标品套利（非交割品）</h3>
               <ul>
-                <li>轮胎厂：采购现货 + 卖出 RU/NR，管理配方原料成本</li>
-                <li>贸易商：收现货注册仓单，同时持有期货空头</li>
-                <li>加工厂：产成标准胶后注册仓单，卖出对应月份合约</li>
+                <li>混合胶、非标港口货等，期货只能近似对冲</li>
+                <li>同样是现货多头 + 期货空头，但基差不一定回归</li>
+                <li>甚至可能出现反向基差变动：期货涨、现货不动，或两者背离</li>
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="slide" data-title="贸易口径" data-section="交易策略">
-        <div class="slide-inner">
-          <div class="slide-header reveal">
-            <span class="section-label">交易策略</span>
-            <span class="page-no">15</span>
-          </div>
-          <h2 class="reveal">价差业务里还会牵涉到的几个口径</h2>
-          <div class="grid-3 mt-md reveal">
-            <div class="panel dense"><h3>价格口径</h3><p>RU 含税、NR 不含税；人民币/美元/日元；现货升贴水、港口费用在横向比较时往往需要统一。</p></div>
-            <div class="panel dense"><h3>交割口径</h3><p>品牌能否注册仓单、SCR WF / RSS3 / STR20 是否可交割、仓库库容和出库节奏。</p></div>
-            <div class="panel dense"><h3>资金口径</h3><p>保证金、融资利息、追加保证金；期现两端现金流时间错配也会带来额外成本。</p></div>
-            <div class="panel dense"><h3>质量口径</h3><p>年份、产地、包装、杂质和检验争议会影响实际交割感受；保税货还有海关监管要求。</p></div>
-            <div class="panel dense"><h3>流动性口径</h3><p>RU/NR 主力合约流动性较好，远月、BR 个别月份和海外盘的成交深度则相对有限。</p></div>
-            <div class="panel dense"><h3>法律口径</h3><p>货权、仓单、保税监管、质押状态、长约回购条款，都是贸易和交割讨论里常提到的背景。</p></div>
-          </div>
-          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">同一组价差，在不同口径下呈现的样子可能差别很大——这也是橡胶期现业务讨论里经常展开的部分。</p>
+          <p class="mt-sm reveal" style="font-size:21px;color:var(--muted);">同一套「持货 + 卖期货」结构，落在标品上多谈升贴水回归，落在非标品上则要先接受基差可能长期偏离。</p>
         </div>
       </section>
 
@@ -1836,12 +1986,6 @@
               </ul>
             </div>
           </div>
-          <div class="grid-3 mt-sm reveal">
-            <div class="metric dense"><div class="value">52 亿+</div><div class="label">2024 年末上期综合业务平台线上质押融资规模</div></div>
-            <div class="metric dense"><div class="value">80%</div><div class="label">部分业务质押率上限参考（视银行与品种而定）</div></div>
-            <div class="metric dense"><div class="value">3 类</div><div class="label">仓库、厂库、延伸及保税标准仓单均可线上质押</div></div>
-          </div>
-          <p class="lead mt-sm reveal">有标准仓单时，仓单质押因确权清晰、流程成熟而较常见；非标现货多走货押；买卖式则多见于有贸易背景、需要快速变现的情形。</p>
         </div>
       </section>
 
@@ -1852,14 +1996,7 @@
             <span class="page-no">18</span>
           </div>
           <h2 class="reveal">货押：银行最关心货权和监管闭环</h2>
-          <div class="flow mt-sm reveal">
-            <div class="step"><b>1 入库</b><p>货物进入银行认可仓库，出具入库单</p></div>
-            <div class="step"><b>2 评估</b><p>确认品类、质量、数量、现货价格</p></div>
-            <div class="step"><b>3 质押</b><p>签质押合同，仓库出监管证明</p></div>
-            <div class="step"><b>4 放款</b><p>按质押率发放短期资金</p></div>
-            <div class="step"><b>5 解押</b><p>还款后解除监管并提货</p></div>
-          </div>
-          <div class="grid-2 mt-sm reveal">
+          <div class="grid-2 mt-md reveal">
             <div class="panel dense">
               <h3>特点与适用</h3>
               <ul>
@@ -1972,41 +2109,6 @@
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="slide" data-title="方式比较" data-section="库存融资">
-        <div class="slide-inner">
-          <div class="slide-header reveal">
-            <span class="section-label">库存融资</span>
-            <span class="page-no">21</span>
-          </div>
-          <h2 class="reveal">三种融资方式的大致对照</h2>
-          <div class="matrix cols-5 mt-md reveal">
-            <div class="head">模式</div><div class="head">适合货物</div><div class="head">资金用途</div><div class="head">优点</div><div class="head">主要风险</div>
-            <div class="rowhead">货物质押</div><div>普通现货、港口货、在途货、未注册仓单库存</div><div>短期流动资金、采购周转</div><div>灵活覆盖面广，不要求已注册仓单</div><div>监管仓资质、货权瑕疵、重复质押、跌价补仓</div>
-            <div class="rowhead">买卖式融资</div><div>可控货权现货，有真实贸易背景</div><div>贸易周转、到港付汇、原料采购</div><div>现金回笼直观，手续相对简单</div><div>买卖真实性审查、回购违约、跌价处置、合规认定</div>
-            <div class="rowhead">仓单质押</div><div>RU/NR 标准仓单、保税标准仓单</div><div>流动资金或期货保证金</div><div>确权强、估值透明、线上流转快</div><div>质押率上限、仓单有效期、追加保证金</div>
-          </div>
-          <div class="grid-2 mt-sm reveal">
-            <div class="panel dense">
-              <h3>大致对应关系</h3>
-              <ul>
-                <li>已有标准仓单 → 仓单质押较常见</li>
-                <li>非标库存、尚未注册 → 货物质押</li>
-                <li>有贸易合同支撑、需快速变现 → 买卖式融资</li>
-              </ul>
-            </div>
-            <div class="panel dense">
-              <h3>与套保的关系</h3>
-              <ul>
-                <li>融资持货期间，企业也可能配合 RU/NR 卖出管理价格风险</li>
-                <li>仓单质押 + 期货空头，是行业里较常提到的组合</li>
-                <li>质押率、保证金与期货头寸之间往往存在联动</li>
-              </ul>
-            </div>
-          </div>
-          <p class="mt-sm reveal" style="font-size:22px;color:var(--muted);">对橡胶贸易商来说，标准仓单质押通常是最规范的路径；非标库存则更多回到银行与监管仓的货押安排。</p>
         </div>
       </section>
 
